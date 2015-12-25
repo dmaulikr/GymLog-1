@@ -36,7 +36,7 @@ const WorkoutsSummary = React.createClass({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   infoContainer: {
     flex: 1,
