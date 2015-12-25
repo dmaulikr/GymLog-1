@@ -7,6 +7,8 @@ const {
 import DetailCell from './detail-cell';
 const Colors = require('../colors.json');
 import NavigationBar from './navigation-bar';
+import ListHeader from './list-header';
+import WorkoutsSummary from './workouts-summary';
 
 const data = [
   {
@@ -28,6 +30,7 @@ const WorkoutList = React.createClass({
     return (
       <View style={styles.container}>
         <NavigationBar title='Workouts' />
+        <WorkoutsSummary />
         <View style={styles.content}>
           {data.map((d, index) => <DetailCell primaryText={d.main} detailText={d.detail} key={index} />)}
         </View>
