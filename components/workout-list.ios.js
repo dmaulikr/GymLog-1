@@ -6,6 +6,7 @@ const {
 } = React;
 import DetailCell from './detail-cell';
 const Colors = require('../colors.json');
+import NavigationBar from './navigation-bar';
 
 const data = [
   {
@@ -26,9 +27,7 @@ const WorkoutList = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.navbar}>
-          <Text style={styles.navbarTitle}>Workouts</Text>
-        </View>
+        <NavigationBar title='Workouts' />
         <View style={styles.content}>
           {data.map((d, index) => <DetailCell primaryText={d.main} detailText={d.detail} key={index} />)}
         </View>
@@ -42,20 +41,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1
-  },
-  navbar: {
-    backgroundColor: Colors.primaryColor,
-    borderBottomColor: Colors.borderGrey,
-    borderBottomWidth: 1,
-    height: 64
-  },
-  navbarTitle: {
-    color: 'white',
-    flex: 1,
-    fontSize: 17,
-    fontWeight: 'bold',
-    marginTop: 32,
-    textAlign: 'center'
   }
 });
 
