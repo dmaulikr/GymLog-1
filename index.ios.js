@@ -13,6 +13,7 @@ var {
   View
 } = React;
 import WorkoutList from './components/workout-list';
+import WorkoutDetails from './components/workout-details';
 const Colors = require('./colors.json');
 
 var GymLog = React.createClass({
@@ -25,7 +26,7 @@ var GymLog = React.createClass({
     return (
       <Navigator
         initialRoute={this.state.currentRoute}   
-        renderScene={(route, navigator) => <WorkoutList />}
+        renderScene={(route, navigator) => <WorkoutDetails />}
         />
     );
   }
