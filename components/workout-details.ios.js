@@ -9,9 +9,74 @@ import NavigationBar from './navigation-bar';
 import ListHeader from './list-header';
 import StartWorkout from './start-workout';
 import AddExerciseButton from './add-exercise-button';
+import ExercisesList from './exercises-list';
+import FinishWorkoutButton from './finish-workout-button';
 const Colors = require('../colors.json');
 
-const data = [];
+const data = [
+  {
+    name: 'Bicep curl',
+    reps: [
+      {
+        count: 5,
+        weight: 70
+      },
+      {
+        count: 7,
+        weight: 60
+      },
+      {
+        count: 6,
+        weight: 60
+      },
+      {
+        count: 5,
+        weight: 60
+      },
+      {
+        count: 4,
+        weight: 60
+      }
+    ]
+  },
+  {
+    name: 'Squat',
+    reps: [
+      {
+        count: 3,
+        weight: 175
+      },
+      {
+        count: 2,
+        weight: 185
+      },
+      {
+        count: 5,
+        weight: 155
+      },
+      {
+        count: 5,
+        weight: 155
+      },
+      {
+        count: 5,
+        weight: 155
+      },
+      {
+        count: 5,
+        weight: 155
+      },
+      {
+        count: 5,
+        weight: 155
+      },
+      {
+        count: 7,
+        weight: 135
+      },
+    ]
+  }
+];
 
 const WorkoutDetails = React.createClass({
   render() {

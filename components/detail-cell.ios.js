@@ -8,6 +8,23 @@ const Colors = require('../colors.json');
 
 const DetailCell = React.createClass({
   render() {
+    let detailView = null;
+    if (this.props.detailText) {
+      detailView = (
+        <View style={styles.label}>
+          <Text style={styles.detailLabel}>
+            {this.props.detailText}
+          </Text>
+        </View>
+      )
+    }
+    else if (this.props.detailView) {
+      detailView = (
+        <View style={styles.label}>
+          {this.props.detailView}
+        </View>
+      )
+    }
     return (
       <View style={styles.cell}>
         <View style={styles.label}>
@@ -15,11 +32,7 @@ const DetailCell = React.createClass({
             {this.props.primaryText}
           </Text>
         </View>
-        <View style={styles.label}>
-          <Text style={styles.detailLabel}>
-            {this.props.detailText}
-          </Text>
-        </View>
+        {detailView}
       </View>
     )
   }
