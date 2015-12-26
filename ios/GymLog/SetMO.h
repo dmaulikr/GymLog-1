@@ -10,5 +10,7 @@
 @import CoreData;
 
 @interface SetMO : NSManagedObject
-
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSNumber *repCount;
+@property (nonatomic, strong) NSNumber *weight;
 @end

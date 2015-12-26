@@ -9,5 +9,7 @@
 #import "ExerciseMO.h"
 
 @implementation ExerciseMO
-
+@dynamic createdAt;
+@dynamic name;
+@dynamic notes;
 @end

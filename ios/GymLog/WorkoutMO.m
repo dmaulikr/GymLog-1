@@ -9,5 +9,8 @@
 #import "WorkoutMO.h"
 
 @implementation WorkoutMO
-
+@dynamic createdAt;
+@dynamic location;
+@dynamic workoutEnd;
+@dynamic workoutStart;
 @end

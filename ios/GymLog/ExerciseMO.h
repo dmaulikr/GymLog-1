@@ -10,5 +10,7 @@
 @import CoreData;
 
 @interface ExerciseMO : NSManagedObject
-
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *notes;
 @end

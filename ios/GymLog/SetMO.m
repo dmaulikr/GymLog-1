@@ -9,5 +9,7 @@
 #import "SetMO.h"
 
 @implementation SetMO
-
+@dynamic createdAt;
+@dynamic repCount;
+@dynamic weight;
 @end
