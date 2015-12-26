@@ -7,6 +7,7 @@ const {
 const Colors = require('../colors.json');
 import NavigationBar from './navigation-bar';
 import AddRep from './add-rep';
+import ExerciseSuggestions from './exercise-suggestions';
 
 const AddExercise = React.createClass({
   render() {
@@ -21,7 +22,7 @@ const AddExercise = React.createClass({
             style={styles.exerciseNameInput}
             />
         </View>
-        <AddRep />  
+        <ExerciseSuggestions />
       </View>
     )
   }
