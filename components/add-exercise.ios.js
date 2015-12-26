@@ -11,6 +11,7 @@ import NavigationBar from './navigation-bar';
 import AddRep from './add-rep';
 import ExerciseSuggestions from './exercise-suggestions';
 import RepEntry from './rep-entry';
+import ExerciseHistory from './exercise-history';
 
 const reps = [
   {
@@ -32,7 +33,7 @@ const AddExercise = React.createClass({
           style={styles.content}
           dataSource={
             (new ListView.DataSource({rowHasChanged: (r1, r2) => false}))
-              .cloneWithRows([0, 1, 2, 3, 4])
+              .cloneWithRows([0, 1, 2, 3, 4, 5])
           }
           renderRow={(rowIndex) => {
             switch (rowIndex) {
@@ -48,12 +49,14 @@ const AddExercise = React.createClass({
                   </View>
                 )
               case 1:
-                return <RepEntry count={reps[0].count} weight={reps[0].weight} />;
+                return <ExerciseHistory />;
               case 2:
-                return <RepEntry count={reps[1].count} weight={reps[1].weight} />;
+                return <RepEntry count={reps[0].count} weight={reps[0].weight} />;
               case 3:
-                return <AddRep />;
+                return <RepEntry count={reps[1].count} weight={reps[1].weight} />;
               case 4:
+                return <AddRep />;
+              case 5:
                 return (
                   <View style={styles.notesInputContainer}>
                     <TextInput
