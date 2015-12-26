@@ -7,14 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-@import CoreData;
+#import <CoreData/CoreData.h>
+
+@class ExerciseMO;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutMO : NSManagedObject
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) NSDate *workoutEnd;
-@property (nonatomic, strong) NSDate *workoutStart;
 
++ (NSString *)entityName;
 + (WorkoutMO *)create:(NSDictionary *)attributes;
 - (void)update:(NSDictionary *)attributes;
+
+- (NSArray *)allWorkouts;
+- (void)addExercisesObject:(ExerciseMO *)exercise;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "WorkoutMO+CoreDataProperties.h"

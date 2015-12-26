@@ -7,12 +7,17 @@
 //
 
 #import "SetMO.h"
+#import "ExerciseMO.h"
 #import "DataController.h"
 
 @implementation SetMO
-@dynamic createdAt;
-@dynamic repCount;
-@dynamic weight;
+
++ (NSString *)entityName {
+  return @"Set";
+}
++ (NSFetchRequest *)entityFetchRequest {
+  return [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
+}
 
 + (SetMO *)create:(NSDictionary *)attributes {
   SetMO *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[DataController sharedController].managedObjectContext];
@@ -23,12 +28,13 @@
 - (void)update:(NSDictionary *)attributes {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
-    self.createdAt = attrCreatedAt;
+    self.createdAt = [attrCreatedAt timeIntervalSinceReferenceDate];
   NSNumber *attrRepCount = attributes[@"repCount"];
   if (attrRepCount)
-    self.repCount = attrRepCount;
+    self.repCount = [attrRepCount shortValue];
   NSNumber *attrWeight = attributes[@"weights"];
   if (attrWeight)
-    self.weight = attrWeight;
+    self.weight = [attrWeight shortValue];
 }
+
 @end
