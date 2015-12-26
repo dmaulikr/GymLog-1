@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreData;
 
-@interface SetMO : NSObject
+@interface SetMO : NSManagedObject
 
 @end

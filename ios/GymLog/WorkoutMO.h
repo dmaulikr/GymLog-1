@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreData;
 
-@interface WorkoutMO : NSObject
+@interface WorkoutMO : NSManagedObject
 
 @end
