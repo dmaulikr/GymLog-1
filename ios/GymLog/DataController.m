@@ -7,15 +7,20 @@
 //
 
 #import "DataController.h"
-@import CoreData;
 
 @interface DataController()
-@property (strong) NSManagedObjectContext *managedObjectContext;
-
 - (void)initializeCoreData;
 @end
 
 @implementation DataController
+
+static DataController *_sharedController = nil;
++ (DataController *)sharedController {
+  if (!_sharedController)
+    _sharedController = [[DataController alloc] init];
+  return _sharedController;
+}
+
 - (id)init {
   if (!(self = [super init]))
     return nil;
@@ -44,5 +49,12 @@
     NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
     NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
   });
+}
+
+- (void)persist {
+  NSError *error = nil;
+  if ([[self managedObjectContext] save:&error] == NO) {
+    NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+  }
 }
 @end

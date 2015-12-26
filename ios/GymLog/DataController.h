@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreData;
 
 @interface DataController : NSObject
 
+@property (strong) NSManagedObjectContext *managedObjectContext;
+
++ (DataController *)sharedController;
+- (void)persist;
 @end

@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSNumber *repCount;
 @property (nonatomic, strong) NSNumber *weight;
+
++ (SetMO *)create:(NSDictionary *)attributes;
+- (void)update:(NSDictionary *)attributes;
 @end

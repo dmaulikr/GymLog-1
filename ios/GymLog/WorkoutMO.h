@@ -14,4 +14,7 @@
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSDate *workoutEnd;
 @property (nonatomic, strong) NSDate *workoutStart;
+
++ (WorkoutMO *)create:(NSDictionary *)attributes;
+- (void)update:(NSDictionary *)attributes;
 @end

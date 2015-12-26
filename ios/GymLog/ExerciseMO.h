@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *notes;
+
++ (ExerciseMO *)create:(NSDictionary *)attributes;
+- (void)update:(NSDictionary *)attributes;
 @end
