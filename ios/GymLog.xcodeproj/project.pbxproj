@@ -26,6 +26,8 @@
 		3D9D899C1C2F2A9B0006783F /* WorkoutMO.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D899B1C2F2A9B0006783F /* WorkoutMO.m */; };
 		3D9D899F1C2F2F5E0006783F /* ExerciseMO.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D899E1C2F2F5E0006783F /* ExerciseMO.m */; };
 		3D9D89A21C2F2F7B0006783F /* SetMO.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89A11C2F2F7B0006783F /* SetMO.m */; };
+		3D9D89A51C2F33290006783F /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89A41C2F33290006783F /* DataController.m */; };
+		3D9D89A71C2F341C0006783F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9D89A61C2F341C0006783F /* CoreData.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +146,9 @@
 		3D9D899E1C2F2F5E0006783F /* ExerciseMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseMO.m; path = GymLog/ExerciseMO.m; sourceTree = "<group>"; };
 		3D9D89A01C2F2F7B0006783F /* SetMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetMO.h; path = GymLog/SetMO.h; sourceTree = "<group>"; };
 		3D9D89A11C2F2F7B0006783F /* SetMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetMO.m; path = GymLog/SetMO.m; sourceTree = "<group>"; };
+		3D9D89A31C2F33290006783F /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataController.h; path = GymLog/DataController.h; sourceTree = "<group>"; };
+		3D9D89A41C2F33290006783F /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataController.m; path = GymLog/DataController.m; sourceTree = "<group>"; };
+		3D9D89A61C2F341C0006783F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9D89A71C2F341C0006783F /* CoreData.framework in Frameworks */,
 				3D9D89961C2E3D770006783F /* libRNChart.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -256,6 +262,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				3D9D89A31C2F33290006783F /* DataController.h */,
+				3D9D89A41C2F33290006783F /* DataController.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -324,6 +332,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3D9D89A61C2F341C0006783F /* CoreData.framework */,
 				13B07FAE1A68108700A75B9A /* GymLog */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GymLogTests */,
@@ -594,6 +603,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				3D9D899C1C2F2A9B0006783F /* WorkoutMO.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				3D9D89A51C2F33290006783F /* DataController.m in Sources */,
 				3D9D89991C2F2A2D0006783F /* GymLog.xcdatamodeld in Sources */,
 				3D9D899F1C2F2F5E0006783F /* ExerciseMO.m in Sources */,
 			);
