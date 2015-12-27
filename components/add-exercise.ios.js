@@ -29,11 +29,11 @@ const AddExercise = React.createClass({
   render() {
     const transitionBack = () => this.props.navigator.pop();
     const backButton = <NavigationButton text='Cancel' onPress={transitionBack} />;
-    const finishWorkout = () => 0;
-    const finishButton = <NavigationButton text='Edit' onPress={finishWorkout} />;
+    const finishWorkout = () => this.props.navigator.pop();
+    const finishButton = <NavigationButton text='Finish' onPress={finishWorkout} />;
     return (
       <View style={styles.container}>
-        <NavigationBar title='12/23' leftItem={backButton} />
+        <NavigationBar title='12/23' leftItem={backButton} rightItem={finishButton} />
         <ListView
           style={styles.content}
           dataSource={
