@@ -9,12 +9,15 @@ const Colors = require('../colors.json');
 
 const WorkoutsSummary = React.createClass({
   render() {
+    const totalSeconds = this.props.data.reduce(((sum, workout) => sum + workout.duration), 0);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds - hours * 3600) / 60);
     return (
       <ListHeader>
         <View style={styles.container}>
           <View style={styles.infoContainer}>
             <Text style={styles.value}>
-              3h 40m
+              {hours}h {minutes}m
             </Text>
             <Text style={styles.label}>
               Gym time this week
