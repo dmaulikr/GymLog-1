@@ -43,8 +43,10 @@ const WorkoutList = React.createClass({
   },
   render() {
     const transitionToWorkout = () => {
-      Workout.registerNewWorkout((error, workout) => this.setState({ data: this.state.data.concat(workout) }));
-      // this.props.navigator.push({ title: 'Workout' })
+      Workout.registerNewWorkout((error, workout) => {
+        this.setState({ data: this.state.data.concat(workout) });
+        this.props.navigator.push({ title: 'Workout', workout: workout });
+      });
     };
     const addButton = <AddButton onPress={transitionToWorkout} />;
     return (

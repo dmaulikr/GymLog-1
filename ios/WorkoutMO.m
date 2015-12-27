@@ -45,7 +45,8 @@
   return @{
             @"createdAt": @(self.createdAt),
             @"duration": @3720,
-            @"location": self.location ? self.location : @"Unknown location"
+            @"location": self.location ? self.location : @"Unknown location",
+            @"exercises": @[]
           };
 }
 
