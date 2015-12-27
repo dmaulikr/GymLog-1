@@ -1,13 +1,18 @@
 const React = require('react-native');
 const {
   StyleSheet,
-  Text
+  Text,
+  TouchableOpacity
 } = React;
 const Colors = require('../colors.json');
 
 const FinishWorkoutButton = React.createClass({
   render() {
-    return <Text style={styles.finishWorkout}>Finish workout</Text>
+    return (
+      <TouchableOpacity onPress={this.props.onPress}>
+        <Text style={styles.finishWorkout}>Finish workout</Text>
+      </TouchableOpacity>
+    );
   }
 });
 

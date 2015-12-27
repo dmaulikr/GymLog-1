@@ -100,7 +100,7 @@ const WorkoutDetails = React.createClass({
         </View>
         <View style={styles.footer}>
           <AddExerciseButton onPress={() => this.props.navigator.push({title: 'AddExercise'})} />
-          {data.length >= 1 ? <FinishWorkoutButton /> : null}
+          {data.length >= 1 ? <FinishWorkoutButton onPress={() => this.props.navigator.pop()} /> : null}
         </View>
       </View>
     )

@@ -1,6 +1,6 @@
 const React = require('react-native');
 const {
-  TouchableHighlight,
+  TouchableOpacity,
   Text,
   StyleSheet
 } = React;
@@ -8,9 +8,9 @@ const {
 const BackButton = React.createClass({
   render() {
     return (
-      <TouchableHighlight onPress={this.props.onPress}>
+      <TouchableOpacity onPress={this.props.onPress}>
         <Text style={styles.backButton}>{'{'} {this.props.title}</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 });
