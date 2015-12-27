@@ -31,7 +31,7 @@ var GymLog = React.createClass({
           if (route.title === 'Workouts')
             return <WorkoutList navigator={navigator} />;
           else if (route.title === 'Workout')
-            return <WorkoutDetails navigatior={navigator} />;
+            return <WorkoutDetails navigator={navigator} />;
         }}
         />
     );

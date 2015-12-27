@@ -8,14 +8,17 @@ const Colors = require('../colors.json');
 
 const NavigationBar = React.createClass({
   render() {
-    const rightItem = this.props.rightItem;
+    console.log(`Left item: ${this.props.leftItem}, right item: ${this.props.rightItem}`);
     return (
       <View style={styles.navbar}>
+        <View style={styles.leftItem}>
+          {this.props.leftItem}
+        </View>
         <View style={styles.centerItem}>
           <Text style={styles.navbarTitle}>{this.props.title}</Text>
         </View>
         <View style={styles.rightItem}>
-          {rightItem}
+          {this.props.rightItem}
         </View>
       </View>
     )
@@ -24,9 +27,18 @@ const NavigationBar = React.createClass({
 
 const styles = StyleSheet.create({
   centerItem: {
-    left: 0,
+    bottom: 10,
+    left: 110,
     position: 'absolute',
-    right: 0
+    right: 110
+  },
+  leftItem: {
+    bottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    left: 10,
+    position: 'absolute',
+    width: 100
   },
   navbar: {
     backgroundColor: Colors.primaryColor,
@@ -38,14 +50,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontWeight: 'bold',
-    marginTop: 32,
     textAlign: 'center'
   },
   rightItem: {
     bottom: 5,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     position: 'absolute',
     right: 10,
-    width: 20
+    width: 100
   }
 });
 

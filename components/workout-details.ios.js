@@ -11,6 +11,8 @@ import StartWorkout from './start-workout';
 import AddExerciseButton from './add-exercise-button';
 import ExercisesList from './exercises-list';
 import FinishWorkoutButton from './finish-workout-button';
+import NavigationButton from './navigation-button';
+import BackButton from './back-button';
 const Colors = require('../colors.json');
 
 const data = [
@@ -80,9 +82,13 @@ const data = [
 
 const WorkoutDetails = React.createClass({
   render() {
+    const transitionBack = () => this.props.navigator.pop();
+    const backButton = <BackButton title='Workouts' onPress={transitionBack} />;
+    const transitionToWorkout = () => this.props.navigator.push({ title: 'Workout' });
+    const addButton = <NavigationButton text='+' onPress={transitionToWorkout} />;
     return (
       <View style={styles.container}>
-        <NavigationBar title='12/23' />
+        <NavigationBar title='12/23' leftItem={backButton} rightItem={addButton} />
         <View style={styles.content}>
           <ListHeader>
             <View style={styles.workoutSummary}>
