@@ -42,7 +42,10 @@ const WorkoutList = React.createClass({
     Workout.fetchAllWorkouts((error, workouts) => this.setState({ data: workouts }))
   },
   render() {
-    const transitionToWorkout = () => this.props.navigator.push({ title: 'Workout' });
+    const transitionToWorkout = () => {
+      Workout.registerNewWorkout((error, workout) => this.setState({ data: this.state.data.concat(workout) }));
+      // this.props.navigator.push({ title: 'Workout' })
+    };
     const addButton = <AddButton onPress={transitionToWorkout} />;
     return (
       <View style={styles.container}>
@@ -51,10 +54,14 @@ const WorkoutList = React.createClass({
         <View style={styles.content}>
           {this.state.data.map(
             (d, index) => {
+              const createdAt = new Date(d.createdAt * 1000);
+              const month = createdAt.getMonth() + 1;
+              const date = createdAt.getDate();
+              const main = `${month}/${date}`;
               const hours = Math.floor(d.duration / 3600);
               const minutes = Math.floor((d.duration - hours * 3600) / 60);
               const detail = `${hours}h ${minutes}m • ${d.location}`;
-              return <DetailCell primaryText={d.main} detailText={detail} key={index} />;
+              return <DetailCell primaryText={main} detailText={detail} key={index} />;
             })
           }
         </View>

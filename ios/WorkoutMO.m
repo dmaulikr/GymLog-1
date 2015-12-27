@@ -22,22 +22,31 @@
 + (WorkoutMO *)create:(NSDictionary *)attributes {
   WorkoutMO *workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:[DataController sharedController].managedObjectContext];
   [workout update:attributes];
-  [[DataController sharedController] persist];
+//  [[DataController sharedController] persist];
   return workout;
 }
 - (void)update:(NSDictionary *)attributes {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
-    self.createdAt = [attrCreatedAt timeIntervalSinceReferenceDate];
+    self.createdAt = [attrCreatedAt timeIntervalSince1970];
   NSString *attrLocation = attributes[@"location"];
   if (attrLocation)
     self.location = attrLocation;
   NSDate *attrWorkoutEnd = attributes[@"workoutEnd"];
   if (attrWorkoutEnd)
-    self.workoutEnd = [attrWorkoutEnd timeIntervalSinceReferenceDate];
+    self.workoutEnd = [attrWorkoutEnd timeIntervalSince1970];
   NSDate *attrWorkoutStart = attributes[@"workoutStart"];
   if (attrWorkoutStart)
-    self.workoutStart = [attrWorkoutStart timeIntervalSinceReferenceDate];
+    self.workoutStart = [attrWorkoutStart timeIntervalSince1970];
+}
+
+- (NSDictionary *)asJSON {
+  NSLog(@"Created at: %f", self.createdAt);
+  return @{
+            @"createdAt": @(self.createdAt),
+            @"duration": @3720,
+            @"location": self.location ? self.location : @"Unknown location"
+          };
 }
 
 + (NSArray *)allWorkouts:(NSError * _Nullable *)error {

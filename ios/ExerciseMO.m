@@ -30,7 +30,7 @@
 - (void)update:(NSDictionary *)attributes {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
-    self.createdAt = [attrCreatedAt timeIntervalSinceReferenceDate];
+    self.createdAt = [attrCreatedAt timeIntervalSince1970];
   NSString *attrName = attributes[@"name"];
   if (attrName)
     self.name = attrName;

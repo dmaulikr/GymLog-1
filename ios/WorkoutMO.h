@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)entityName;
 + (WorkoutMO *)create:(NSDictionary *)attributes;
 - (void)update:(NSDictionary *)attributes;
+- (NSDictionary *)asJSON;
 
 + (NSArray *)allWorkouts:(NSError * _Nullable *)error;
 

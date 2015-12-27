@@ -21,4 +21,10 @@ RCT_EXPORT_METHOD(fetchAllWorkouts:(RCTResponseSenderBlock)callback) {
   callback(@[callbackError, workouts]);
 }
 
+RCT_EXPORT_METHOD(registerNewWorkout:(RCTResponseSenderBlock)callback) {
+  WorkoutMO *newWorkout = [WorkoutMO create:@{@"createdAt": [NSDate date]}];
+  // TODO: Track errors on create
+  callback(@[[NSNull null], [newWorkout asJSON]]);
+}
+
 @end

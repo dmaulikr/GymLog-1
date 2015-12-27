@@ -28,7 +28,7 @@
 - (void)update:(NSDictionary *)attributes {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
-    self.createdAt = [attrCreatedAt timeIntervalSinceReferenceDate];
+    self.createdAt = [attrCreatedAt timeIntervalSince1970];
   NSNumber *attrRepCount = attributes[@"repCount"];
   if (attrRepCount)
     self.repCount = [attrRepCount shortValue];
