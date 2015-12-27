@@ -11,6 +11,7 @@ import NavigationBar from './navigation-bar';
 import AddRep from './add-rep';
 import ExerciseSuggestions from './exercise-suggestions';
 import RepEntry from './rep-entry';
+import NavigationButton from './navigation-button';
 // import ExerciseHistory from './exercise-history';
 
 const reps = [
@@ -26,9 +27,13 @@ const reps = [
 
 const AddExercise = React.createClass({
   render() {
+    const transitionBack = () => this.props.navigator.pop();
+    const backButton = <NavigationButton text='Cancel' onPress={transitionBack} />;
+    const finishWorkout = () => 0;
+    const finishButton = <NavigationButton text='Edit' onPress={finishWorkout} />;
     return (
       <View style={styles.container}>
-        <NavigationBar title='12/23' />
+        <NavigationBar title='12/23' leftItem={backButton} />
         <ListView
           style={styles.content}
           dataSource={

@@ -18,8 +18,7 @@ const NavigationButton = React.createClass({
 const styles = StyleSheet.create({
   navButton: {
     color: 'white',
-    fontSize: 30,
-    fontWeight: '500',
+    fontSize: 16,
     textAlign: 'center'
   }
 });

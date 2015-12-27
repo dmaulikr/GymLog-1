@@ -2,7 +2,8 @@ const React = require('react-native');
 const {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } = React;
 const Colors = require('../colors.json');
 
@@ -10,9 +11,11 @@ const AddExerciseButton = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.primaryButton}>
-          <Text style={styles.buttonPrompt}>+ Add exercise</Text>
-        </View>
+        <TouchableOpacity style={styles.content} onPress={this.props.onPress}>
+          <View style={styles.primaryButton}>
+            <Text style={styles.buttonPrompt}>+ Add exercise</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -28,6 +31,9 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     flexDirection: 'row',
     padding: 10
+  },
+  content: {
+    flex: 1
   },
   primaryButton: {
     backgroundColor: Colors.primaryColor,

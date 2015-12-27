@@ -9,7 +9,7 @@ const Colors = require('../colors.json');
 import NavigationBar from './navigation-bar';
 import ListHeader from './list-header';
 import WorkoutsSummary from './workouts-summary';
-import NavigationButton from './navigation-button';
+import AddButton from './add-button';
 
 const data = [
   {
@@ -29,7 +29,7 @@ const data = [
 const WorkoutList = React.createClass({
   render() {
     const transitionToWorkout = () => this.props.navigator.push({ title: 'Workout' });
-    const addButton = <NavigationButton text='+' onPress={transitionToWorkout} />;
+    const addButton = <AddButton onPress={transitionToWorkout} />;
     return (
       <View style={styles.container}>
         <NavigationBar title='Workouts' rightItem={addButton} />

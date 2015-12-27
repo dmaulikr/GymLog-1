@@ -5,23 +5,24 @@ const {
   StyleSheet
 } = React;
 
-const BackButton = React.createClass({
+const AddButton = React.createClass({
   render() {
     return (
       <TouchableHighlight onPress={this.props.onPress}>
-        <Text style={styles.backButton}>{'{'} {this.props.title}</Text>
+        <Text style={styles.addButton}>+</Text>
       </TouchableHighlight>
     )
   }
 });
 
 const styles = StyleSheet.create({
-  backButton: {
+  addButton: {
     color: 'white',
-    fontSize: 16,
-    // fontWeight: '300',
+    fontSize: 30,
+    fontWeight: '500',
+    marginBottom: -7,
     textAlign: 'center'
   }
 });
 
-export default BackButton;
+export default AddButton;

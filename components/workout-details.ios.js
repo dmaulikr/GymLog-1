@@ -84,8 +84,8 @@ const WorkoutDetails = React.createClass({
   render() {
     const transitionBack = () => this.props.navigator.pop();
     const backButton = <BackButton title='Workouts' onPress={transitionBack} />;
-    const transitionToWorkout = () => this.props.navigator.push({ title: 'Workout' });
-    const addButton = <NavigationButton text='+' onPress={transitionToWorkout} />;
+    const transitionToWorkout = () => 0;
+    const addButton = <NavigationButton text='Edit' onPress={transitionToWorkout} />;
     return (
       <View style={styles.container}>
         <NavigationBar title='12/23' leftItem={backButton} rightItem={addButton} />
@@ -99,7 +99,7 @@ const WorkoutDetails = React.createClass({
           {data.length < 1 ? <StartWorkout /> : <ExercisesList exercises={data} />}
         </View>
         <View style={styles.footer}>
-          <AddExerciseButton />
+          <AddExerciseButton onPress={() => this.props.navigator.push({title: 'AddExercise'})} />
           {data.length >= 1 ? <FinishWorkoutButton /> : null}
         </View>
       </View>

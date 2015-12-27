@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   rightItem: {
-    bottom: 5,
+    bottom: 10,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     position: 'absolute',
