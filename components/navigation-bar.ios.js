@@ -8,15 +8,26 @@ const Colors = require('../colors.json');
 
 const NavigationBar = React.createClass({
   render() {
+    const rightItem = this.props.rightItem;
     return (
       <View style={styles.navbar}>
-        <Text style={styles.navbarTitle}>{this.props.title}</Text>
+        <View style={styles.centerItem}>
+          <Text style={styles.navbarTitle}>{this.props.title}</Text>
+        </View>
+        <View style={styles.rightItem}>
+          {rightItem}
+        </View>
       </View>
     )
   }
 });
 
 const styles = StyleSheet.create({
+  centerItem: {
+    left: 0,
+    position: 'absolute',
+    right: 0
+  },
   navbar: {
     backgroundColor: Colors.primaryColor,
     borderBottomColor: Colors.borderGrey,
@@ -25,11 +36,16 @@ const styles = StyleSheet.create({
   },
   navbarTitle: {
     color: 'white',
-    flex: 1,
     fontSize: 17,
     fontWeight: 'bold',
     marginTop: 32,
     textAlign: 'center'
+  },
+  rightItem: {
+    bottom: 5,
+    position: 'absolute',
+    right: 10,
+    width: 20
   }
 });
 

@@ -11,7 +11,7 @@ import NavigationBar from './navigation-bar';
 import AddRep from './add-rep';
 import ExerciseSuggestions from './exercise-suggestions';
 import RepEntry from './rep-entry';
-import ExerciseHistory from './exercise-history';
+// import ExerciseHistory from './exercise-history';
 
 const reps = [
   {
@@ -49,7 +49,8 @@ const AddExercise = React.createClass({
                   </View>
                 )
               case 1:
-                return <ExerciseHistory />;
+                // return <ExerciseHistory />;
+                return null;
               case 2:
                 return <RepEntry count={reps[0].count} weight={reps[0].weight} />;
               case 3:

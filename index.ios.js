@@ -27,7 +27,12 @@ var GymLog = React.createClass({
     return (
       <Navigator
         initialRoute={this.state.currentRoute}   
-        renderScene={(route, navigator) => <AddExercise />}
+        renderScene={(route, navigator) => {
+          if (route.title === 'Workouts')
+            return <WorkoutList navigator={navigator} />;
+          else if (route.title === 'Workout')
+            return <WorkoutDetails navigatior={navigator} />;
+        }}
         />
     );
   }
