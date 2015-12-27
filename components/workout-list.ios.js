@@ -11,30 +11,35 @@ import ListHeader from './list-header';
 import WorkoutsSummary from './workouts-summary';
 import AddButton from './add-button';
 
+const Workout = React.NativeModules.Workout;
+
 const WorkoutList = React.createClass({
   getInitialState() {
     return {
       data: [
-        {
-          main: '12/23 (Today)',
-          duration: 8100,
-          location: 'Teagle',
-          detail: '2h 15m • Teagle'
-        },
-        {
-          main: '12/22 (Yesterday)',
-          duration: 7200,
-          location: 'Teagle',
-          detail: '2h 0m • Teagle'
-        },
-        {
-          main: '12/21',
-          duration: 7500,
-          location: 'Noyes',
-          detail: '2h 5m • Noyes'
-        }
+        // {
+        //   main: '12/23 (Today)',
+        //   duration: 8100,
+        //   location: 'Teagle',
+        //   detail: '2h 15m • Teagle'
+        // },
+        // {
+        //   main: '12/22 (Yesterday)',
+        //   duration: 7200,
+        //   location: 'Teagle',
+        //   detail: '2h 0m • Teagle'
+        // },
+        // {
+        //   main: '12/21',
+        //   duration: 7500,
+        //   location: 'Noyes',
+        //   detail: '2h 5m • Noyes'
+        // }
       ]
     }
+  },
+  componentWillMount() {
+    Workout.fetchAllWorkouts((error, workouts) => this.setState({ data: workouts }))
   },
   render() {
     const transitionToWorkout = () => this.props.navigator.push({ title: 'Workout' });

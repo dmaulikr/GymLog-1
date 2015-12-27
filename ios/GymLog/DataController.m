@@ -31,7 +31,7 @@ static DataController *_sharedController = nil;
 
 // https://developer.apple.com/library/tvos/documentation/Cocoa/Conceptual/CoreData/InitializingtheCoreDataStack.html#//apple_ref/doc/uid/TP40001075-CH4-SW1
 - (void)initializeCoreData {
-  NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"GymLog" withExtension:@"xcdatamodeld"];
+  NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"GymLog" withExtension:@"momd"];
   NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   NSAssert(mom != nil, @"Error initializing Managed Object Model");
   

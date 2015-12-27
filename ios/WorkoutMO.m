@@ -40,13 +40,11 @@
     self.workoutStart = [attrWorkoutStart timeIntervalSinceReferenceDate];
 }
 
-- (NSArray *)allWorkouts {
-  NSFetchRequest *fetchRequest = [[self class] entityFetchRequest];
++ (NSArray *)allWorkouts:(NSError * _Nullable *)error {
+  NSFetchRequest *fetchRequest = [self entityFetchRequest];
   NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"workoutStart" ascending:NO];
   [fetchRequest setSortDescriptors:@[sortDescriptor]];
-  NSError *error;
-  NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-  NSAssert(fetchedObjects != nil, @"Error fetching all workouts: %@\n%@", [error localizedDescription], [error userInfo]);
+  NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:error];
   return fetchedObjects;
 }
 

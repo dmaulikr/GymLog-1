@@ -19,8 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (WorkoutMO *)create:(NSDictionary *)attributes;
 - (void)update:(NSDictionary *)attributes;
 
-- (NSArray *)allWorkouts;
-- (void)addExercisesObject:(ExerciseMO *)exercise;
++ (NSArray *)allWorkouts:(NSError * _Nullable *)error;
 
 @end
 
