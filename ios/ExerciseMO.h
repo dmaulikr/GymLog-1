@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (ExerciseMO *)create:(NSDictionary *)attributes;
 - (void)update:(NSDictionary *)attributes;
 
++ (id)find:(uint64_t)uid error:(NSError * _Nullable *)error;
+
 - (NSDictionary *)asJSON;
 
 @end

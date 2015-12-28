@@ -47,12 +47,23 @@
 }
 
 - (NSDictionary *)asJSON {
+  NSMutableArray *setsJSON = [NSMutableArray arrayWithCapacity:[self.sets count]];
+  for (SetMO *set in self.sets)
+    [setsJSON addObject:[set asJSON]];
   return @{
+           @"uid": @(self.uid),
            @"createdAt": @(self.createdAt),
            @"name": self.name ? self.name : @"",
            @"notes": self.notes ? self.notes : @"",
-           @"sets": @[]
+           @"sets": setsJSON
            };
+}
+
++ (id)find:(uint64_t)uid error:(NSError * _Nullable *)error {
+  NSFetchRequest *fetchRequest = [self entityFetchRequest];
+  [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uid == %li", uid]];
+  NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:error];
+  return fetchedObjects[0];
 }
 
 @end

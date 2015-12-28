@@ -21,6 +21,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		3D1E1E051C30CD4600813A13 /* ExerciseRCTWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1E041C30CD4600813A13 /* ExerciseRCTWrapper.m */; };
 		3D9D89961C2E3D770006783F /* libRNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9D89951C2E3D5F0006783F /* libRNChart.a */; };
 		3D9D89991C2F2A2D0006783F /* GymLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89971C2F2A2C0006783F /* GymLog.xcdatamodeld */; };
 		3D9D89A51C2F33290006783F /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89A41C2F33290006783F /* DataController.m */; };
@@ -142,6 +143,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GymLog/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GymLog/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		3D1E1E031C30CD4600813A13 /* ExerciseRCTWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseRCTWrapper.h; sourceTree = "<group>"; };
+		3D1E1E041C30CD4600813A13 /* ExerciseRCTWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseRCTWrapper.m; sourceTree = "<group>"; };
 		3D9D89901C2E3D5F0006783F /* RNChart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNChart.xcodeproj; path = "../node_modules/react-native-chart/RNChart.xcodeproj"; sourceTree = "<group>"; };
 		3D9D89981C2F2A2C0006783F /* GymLog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymLog.xcdatamodel; sourceTree = "<group>"; };
 		3D9D89A31C2F33290006783F /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataController.h; path = GymLog/DataController.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				3D9D89AE1C2F5B580006783F /* ExerciseMO+CoreDataProperties.m */,
 				3D9D89AF1C2F5B580006783F /* ExerciseMO.h */,
 				3D9D89B01C2F5B580006783F /* ExerciseMO.m */,
+				3D1E1E031C30CD4600813A13 /* ExerciseRCTWrapper.h */,
+				3D1E1E041C30CD4600813A13 /* ExerciseRCTWrapper.m */,
 				3D9D89B11C2F5B580006783F /* SetMO+CoreDataProperties.h */,
 				3D9D89B21C2F5B580006783F /* SetMO+CoreDataProperties.m */,
 				3D9D89B31C2F5B580006783F /* SetMO.h */,
@@ -624,6 +629,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				3D9D89B61C2F5B580006783F /* WorkoutMO.m in Sources */,
 				3D9D89B51C2F5B580006783F /* WorkoutMO+CoreDataProperties.m in Sources */,
+				3D1E1E051C30CD4600813A13 /* ExerciseRCTWrapper.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				3D9D89A51C2F33290006783F /* DataController.m in Sources */,
 				3D9D89BD1C3039E30006783F /* WorkoutRCTWrapper.m in Sources */,

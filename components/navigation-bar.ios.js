@@ -8,7 +8,6 @@ const Colors = require('../colors.json');
 
 const NavigationBar = React.createClass({
   render() {
-    console.log(`Left item: ${this.props.leftItem}, right item: ${this.props.rightItem}`);
     return (
       <View style={styles.navbar}>
         <View style={styles.leftItem}>

@@ -22,6 +22,7 @@
 + (SetMO *)create:(NSDictionary *)attributes {
   SetMO *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[DataController sharedController].managedObjectContext];
   set.uid = [NSDate timeIntervalSinceReferenceDate];
+  set.exercise = attributes[@"exercise"];
   [set update:attributes];
 //  [[DataController sharedController] persist];
   return set;
@@ -33,9 +34,17 @@
   NSNumber *attrRepCount = attributes[@"repCount"];
   if (attrRepCount)
     self.repCount = [attrRepCount shortValue];
-  NSNumber *attrWeight = attributes[@"weights"];
+  NSNumber *attrWeight = attributes[@"weight"];
   if (attrWeight)
     self.weight = [attrWeight shortValue];
+}
+
+- (NSDictionary *)asJSON {
+  return @{
+           @"createdAt": @(self.createdAt),
+           @"repCount": @(self.repCount),
+           @"weight": @(self.weight)
+         };
 }
 
 @end

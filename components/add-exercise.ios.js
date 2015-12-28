@@ -17,6 +17,7 @@ import NavigationButton from './navigation-button';
 const AddExercise = React.createClass({
   getInitialState() {
     return {
+      uid: 0,
       name: '',
       notes: '',
       sets: []
@@ -24,11 +25,17 @@ const AddExercise = React.createClass({
   },
   componentWillMount() {
     const exercise = this.props.exercise;
+    this.setExercise(exercise);
+  },
+  setExercise(exercise, index) {
     this.setState({
+      uid: exercise.uid,
       name: exercise.name,
       notes: exercise.notes,
       sets: exercise.sets
     });
+    console.log('New sets: ' + JSON.stringify(exercise.sets));
+    this.props.setExercise(exercise, index);
   },
   render() {
     const transitionBack = () => this.props.navigator.pop();
@@ -46,9 +53,10 @@ const AddExercise = React.createClass({
       let array = [];
       for (var i = length - 1; i >= 0; i--)
         array[i] = i;
+      console.log(`Length: ${length}, array: ${JSON.stringify(array)}`);
       return array;
     };
-    const exercise = this.props.exercise;
+    const exercise = this.state;
     return (
       <View style={styles.container}>
         <NavigationBar title='12/23' leftItem={backButton} rightItem={finishButton} />
@@ -73,7 +81,7 @@ const AddExercise = React.createClass({
                 </View>
               );
             else if (rowIndex === exercise.sets.length + 1)
-              return <AddRep />;
+              return <AddRep exercise={exercise} setExercise={this.setExercise} index={this.props.index} />;
             else if (rowIndex === exercise.sets.length + 2)
               return (
                 <View style={styles.notesInputContainer}>
@@ -88,8 +96,9 @@ const AddExercise = React.createClass({
               );
             else {
               const setIndex = rowIndex - 1;
+              console.log(`Set index: ${setIndex}, set: ${JSON.stringify(exercise.sets[setIndex])}`);
               const set = exercise.sets[setIndex];
-              return <RepEntry count={set.count} weight={set.weight} />;
+              return <RepEntry count={set.repCount} weight={set.weight} />;
             }
           }}
         />

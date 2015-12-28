@@ -18,6 +18,12 @@ const Colors = require('../colors.json');
 const Workout = React.NativeModules.Workout;
 
 const WorkoutDetails = React.createClass({
+  setExercise(exercise, index) {
+    let newExercises = this.props.workout.exercises.slice(0);
+    newExercises[index] = exercise;
+    let newWorkout = Object.assign({}, this.props.workout, {exercises: newExercises});
+    this.props.setWorkout(newWorkout, this.props.index);
+  },
   render() {
     const transitionBack = () => this.props.navigator.pop();
     const backButton = <BackButton title='Workouts' onPress={transitionBack} />;
@@ -58,7 +64,7 @@ const WorkoutDetails = React.createClass({
           <AddExerciseButton onPress={() => {
             Workout.registerExercise(workout, (error, exercise, workout) => {
               this.props.setWorkout(workout, this.props.index);
-              this.props.navigator.push({title: 'AddExercise', exercise: exercise})
+              this.props.navigator.push({title: 'AddExercise', exercise: exercise, setExercise: this.setExercise});
             })
           }} />
           {exercises.length >= 1 ? <FinishWorkoutButton onPress={() => this.props.navigator.pop()} /> : null}

@@ -49,12 +49,15 @@
 }
 
 - (NSDictionary *)asJSON {
+  NSMutableArray *exercisesJSON = [NSMutableArray arrayWithCapacity:[self.exercises count]];
+  for (ExerciseMO *exercise in self.exercises)
+    [exercisesJSON addObject:[exercise asJSON]];
   NSDictionary *workoutJSON = @{
                                 @"uid": @(self.uid),
                                 @"createdAt": @(self.createdAt),
                                 @"duration": @3720,
                                 @"location": self.location ? self.location : @"Unknown location",
-                                @"exercises": @[]
+                                @"exercises": exercisesJSON
                               };
   return workoutJSON;
 }
