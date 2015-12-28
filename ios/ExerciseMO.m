@@ -49,7 +49,7 @@
 - (NSDictionary *)asJSON {
   return @{
            @"createdAt": @(self.createdAt),
-           @"name": self.name ? self.name : @"Unnamed",
+           @"name": self.name ? self.name : @"",
            @"notes": self.notes ? self.notes : @"",
            @"sets": @[]
            };

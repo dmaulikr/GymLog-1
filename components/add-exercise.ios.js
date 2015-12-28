@@ -14,23 +14,33 @@ import RepEntry from './rep-entry';
 import NavigationButton from './navigation-button';
 // import ExerciseHistory from './exercise-history';
 
-const reps = [
-  {
-    count: 5,
-    weight: 70
-  },
-  {
-    count: 6,
-    weight: 60
-  }
-];
-
 const AddExercise = React.createClass({
+  getInitialState() {
+    return {
+      name: '',
+      notes: '',
+      sets: []
+    }
+  },
+  componentWillMount() {
+    const exercise = this.props.exercise;
+    this.setState({
+      name: exercise.name,
+      notes: exercise.notes,
+      sets: exercise.sets
+    });
+  },
   render() {
     const transitionBack = () => this.props.navigator.pop();
     const backButton = <NavigationButton text='Cancel' onPress={transitionBack} />;
+
     const finishWorkout = () => this.props.navigator.pop();
-    const finishButton = <NavigationButton text='Finish' onPress={finishWorkout} />;
+    let finishEnabled = true;
+    if (this.state.name.length < 1)
+      finishEnabled = false;
+    if (this.state.sets.length < 1)
+      finishEnabled = false;
+    const finishButton = <NavigationButton text='Finish' onPress={finishWorkout} disabled={!finishEnabled} />;
 
     const arrayWithLength = (length) => {
       let array = [];
@@ -57,6 +67,8 @@ const AddExercise = React.createClass({
                     placeholder='Exercise name'
                     enablesReturnKeyAutomatically={true}
                     style={styles.exerciseNameInput}
+                    value={this.state.name}
+                    onChangeText={(text) => this.setState({ name: text })}
                     />
                 </View>
               );
@@ -69,6 +81,8 @@ const AddExercise = React.createClass({
                     placeholder='Notes'
                     multiline={true}
                     style={styles.notesInput}
+                    value={this.state.notes}
+                    onChangeText={(text) => this.setState({ notes: text })}
                   />
                 </View>
               );
