@@ -15,70 +15,7 @@ import NavigationButton from './navigation-button';
 import BackButton from './back-button';
 const Colors = require('../colors.json');
 
-// const data = [
-//   {
-//     name: 'Bicep curl',
-//     reps: [
-//       {
-//         count: 5,
-//         weight: 70
-//       },
-//       {
-//         count: 7,
-//         weight: 60
-//       },
-//       {
-//         count: 6,
-//         weight: 60
-//       },
-//       {
-//         count: 5,
-//         weight: 60
-//       },
-//       {
-//         count: 4,
-//         weight: 60
-//       }
-//     ]
-//   },
-//   {
-//     name: 'Squat',
-//     reps: [
-//       {
-//         count: 3,
-//         weight: 175
-//       },
-//       {
-//         count: 2,
-//         weight: 185
-//       },
-//       {
-//         count: 5,
-//         weight: 155
-//       },
-//       {
-//         count: 5,
-//         weight: 155
-//       },
-//       {
-//         count: 5,
-//         weight: 155
-//       },
-//       {
-//         count: 5,
-//         weight: 155
-//       },
-//       {
-//         count: 5,
-//         weight: 155
-//       },
-//       {
-//         count: 7,
-//         weight: 135
-//       },
-//     ]
-//   }
-// ];
+const Workout = React.NativeModules.Workout;
 
 const WorkoutDetails = React.createClass({
   render() {
@@ -118,7 +55,12 @@ const WorkoutDetails = React.createClass({
           {exercises.length < 1 ? <StartWorkout /> : <ExercisesList exercises={exercises} />}
         </View>
         <View style={styles.footer}>
-          <AddExerciseButton onPress={() => this.props.navigator.push({title: 'AddExercise'})} />
+          <AddExerciseButton onPress={() => {
+            Workout.registerExercise(workout, (error, exercise, workout) => {
+              this.props.setWorkout(workout, this.props.index);
+              this.props.navigator.push({title: 'AddExercise', exercise: exercise})
+            })
+          }} />
           {exercises.length >= 1 ? <FinishWorkoutButton onPress={() => this.props.navigator.pop()} /> : null}
         </View>
       </View>

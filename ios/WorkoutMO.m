@@ -21,8 +21,9 @@
 
 + (WorkoutMO *)create:(NSDictionary *)attributes {
   WorkoutMO *workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:[DataController sharedController].managedObjectContext];
+  workout.uid = [NSDate timeIntervalSinceReferenceDate];
   [workout update:attributes];
-//  [[DataController sharedController] persist];
+  [[DataController sharedController] persist];
   return workout;
 }
 - (void)update:(NSDictionary *)attributes {
@@ -40,14 +41,22 @@
     self.workoutStart = [attrWorkoutStart timeIntervalSince1970];
 }
 
++ (id)find:(uint64_t)uid error:(NSError * _Nullable *)error {
+  NSFetchRequest *fetchRequest = [self entityFetchRequest];
+  [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"uid == %li", uid]];
+  NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:error];
+  return fetchedObjects[0];
+}
+
 - (NSDictionary *)asJSON {
-  NSLog(@"Created at: %f", self.createdAt);
-  return @{
-            @"createdAt": @(self.createdAt),
-            @"duration": @3720,
-            @"location": self.location ? self.location : @"Unknown location",
-            @"exercises": @[]
-          };
+  NSDictionary *workoutJSON = @{
+                                @"uid": @(self.uid),
+                                @"createdAt": @(self.createdAt),
+                                @"duration": @3720,
+                                @"location": self.location ? self.location : @"Unknown location",
+                                @"exercises": @[]
+                              };
+  return workoutJSON;
 }
 
 + (NSArray *)allWorkouts:(NSError * _Nullable *)error {

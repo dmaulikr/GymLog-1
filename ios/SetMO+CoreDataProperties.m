@@ -13,6 +13,7 @@
 
 @implementation SetMO (CoreDataProperties)
 
+@dynamic uid;
 @dynamic createdAt;
 @dynamic repCount;
 @dynamic weight;

@@ -16,45 +16,34 @@ const Workout = React.NativeModules.Workout;
 const WorkoutList = React.createClass({
   getInitialState() {
     return {
-      data: [
-        // {
-        //   main: '12/23 (Today)',
-        //   duration: 8100,
-        //   location: 'Teagle',
-        //   detail: '2h 15m • Teagle'
-        // },
-        // {
-        //   main: '12/22 (Yesterday)',
-        //   duration: 7200,
-        //   location: 'Teagle',
-        //   detail: '2h 0m • Teagle'
-        // },
-        // {
-        //   main: '12/21',
-        //   duration: 7500,
-        //   location: 'Noyes',
-        //   detail: '2h 5m • Noyes'
-        // }
+      workouts: [
       ]
     }
   },
   componentWillMount() {
-    Workout.fetchAllWorkouts((error, workouts) => this.setState({ data: workouts }))
+    Workout.fetchAllWorkouts((error, workouts) => this.setState({ workouts: workouts }))
+  },
+  setWorkout(workout, index) {
+    let newWorkouts = this.state.workouts.slice(0);  // https://davidwalsh.name/javascript-clone-array
+    newWorkouts[index] = workout;
+    this.setState({ workouts: newWorkouts });
   },
   render() {
     const transitionToWorkout = () => {
       Workout.registerNewWorkout((error, workout) => {
-        this.setState({ data: this.state.data.concat(workout) });
-        this.props.navigator.push({ title: 'Workout', workout: workout });
+        let newWorkouts = this.state.workouts.slice(0);
+        newWorkouts.unshift(workout);
+        this.setState({ workouts: newWorkouts });
+        this.props.navigator.push({ title: 'Workout', workout: workout, index: 0, setWorkout: this.setWorkout });
       });
     };
     const addButton = <AddButton onPress={transitionToWorkout} />;
     return (
       <View style={styles.container}>
         <NavigationBar title='Workouts' rightItem={addButton} />
-        <WorkoutsSummary data={this.state.data} />
+        <WorkoutsSummary data={this.state.workouts} />
         <View style={styles.content}>
-          {this.state.data.map(
+          {this.state.workouts.map(
             (d, index) => {
               const createdAt = new Date(d.createdAt * 1000);
               const month = createdAt.getMonth() + 1;

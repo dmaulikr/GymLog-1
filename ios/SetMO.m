@@ -21,8 +21,9 @@
 
 + (SetMO *)create:(NSDictionary *)attributes {
   SetMO *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[DataController sharedController].managedObjectContext];
+  set.uid = [NSDate timeIntervalSinceReferenceDate];
   [set update:attributes];
-  [[DataController sharedController] persist];
+//  [[DataController sharedController] persist];
   return set;
 }
 - (void)update:(NSDictionary *)attributes {

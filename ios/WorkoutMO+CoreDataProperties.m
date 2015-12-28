@@ -13,6 +13,7 @@
 
 @implementation WorkoutMO (CoreDataProperties)
 
+@dynamic uid;
 @dynamic createdAt;
 @dynamic workoutStart;
 @dynamic workoutEnd;

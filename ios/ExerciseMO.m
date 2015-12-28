@@ -20,9 +20,16 @@
   return [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
 }
 
-+ (ExerciseMO *)create:(NSDictionary *)attributes {
++ (ExerciseMO *)newInstance:(NSDictionary *)attributes {
   ExerciseMO *exercise = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:[DataController sharedController].managedObjectContext];
+  exercise.uid = [NSDate timeIntervalSinceReferenceDate];
+  exercise.workout = attributes[@"workout"];
   [exercise update:attributes];
+  return exercise;
+}
+
++ (ExerciseMO *)create:(NSDictionary *)attributes {
+  ExerciseMO *exercise = [self newInstance:attributes];
   [[DataController sharedController] persist];
   return exercise;
 }
@@ -37,6 +44,15 @@
   NSString *attrNotes = attributes[@"notes"];
   if (attrNotes)
     self.notes = attrNotes;
+}
+
+- (NSDictionary *)asJSON {
+  return @{
+           @"createdAt": @(self.createdAt),
+           @"name": self.name ? self.name : @"Unnamed",
+           @"notes": self.notes ? self.notes : @"",
+           @"sets": @[]
+           };
 }
 
 @end

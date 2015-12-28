@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)asJSON;
 
 + (NSArray *)allWorkouts:(NSError * _Nullable *)error;
++ (id)find:(uint64_t)uid error:(NSError * _Nullable *)error;
 
 @end
 

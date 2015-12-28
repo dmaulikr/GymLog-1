@@ -31,6 +31,14 @@ const AddExercise = React.createClass({
     const backButton = <NavigationButton text='Cancel' onPress={transitionBack} />;
     const finishWorkout = () => this.props.navigator.pop();
     const finishButton = <NavigationButton text='Finish' onPress={finishWorkout} />;
+
+    const arrayWithLength = (length) => {
+      let array = [];
+      for (var i = length - 1; i >= 0; i--)
+        array[i] = i;
+      return array;
+    };
+    const exercise = this.props.exercise;
     return (
       <View style={styles.container}>
         <NavigationBar title='12/23' leftItem={backButton} rightItem={finishButton} />
@@ -38,40 +46,36 @@ const AddExercise = React.createClass({
           style={styles.content}
           dataSource={
             (new ListView.DataSource({rowHasChanged: (r1, r2) => false}))
-              .cloneWithRows([0, 1, 2, 3, 4, 5])
+              .cloneWithRows(arrayWithLength(exercise.sets.length + 3))
           }
           renderRow={(rowIndex) => {
-            switch (rowIndex) {
-              case 0:
-                return (
-                  <View style={styles.inputContainer}>
-                    <TextInput
-                      autoFocus={true}
-                      placeholder='Exercise name'
-                      enablesReturnKeyAutomatically={true}
-                      style={styles.exerciseNameInput}
-                      />
-                  </View>
-                )
-              case 1:
-                // return <ExerciseHistory />;
-                return null;
-              case 2:
-                return <RepEntry count={reps[0].count} weight={reps[0].weight} />;
-              case 3:
-                return <RepEntry count={reps[1].count} weight={reps[1].weight} />;
-              case 4:
-                return <AddRep />;
-              case 5:
-                return (
-                  <View style={styles.notesInputContainer}>
-                    <TextInput
-                      placeholder='Notes'
-                      multiline={true}
-                      style={styles.notesInput}
+            if (rowIndex === 0)
+              return (
+                <View style={styles.inputContainer}>
+                  <TextInput
+                    autoFocus={true}
+                    placeholder='Exercise name'
+                    enablesReturnKeyAutomatically={true}
+                    style={styles.exerciseNameInput}
                     />
-                  </View>
-                )
+                </View>
+              );
+            else if (rowIndex === exercise.sets.length + 1)
+              return <AddRep />;
+            else if (rowIndex === exercise.sets.length + 2)
+              return (
+                <View style={styles.notesInputContainer}>
+                  <TextInput
+                    placeholder='Notes'
+                    multiline={true}
+                    style={styles.notesInput}
+                  />
+                </View>
+              );
+            else {
+              const setIndex = rowIndex - 1;
+              const set = exercise.sets[setIndex];
+              return <RepEntry count={set.count} weight={set.weight} />;
             }
           }}
         />

@@ -16,8 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ExerciseMO : NSManagedObject
 
 + (NSString *)entityName;
++ (ExerciseMO *)newInstance:(NSDictionary *)attributes;
 + (ExerciseMO *)create:(NSDictionary *)attributes;
 - (void)update:(NSDictionary *)attributes;
+
+- (NSDictionary *)asJSON;
 
 @end
 

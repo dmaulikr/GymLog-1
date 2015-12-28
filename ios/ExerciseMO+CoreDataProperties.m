@@ -13,6 +13,7 @@
 
 @implementation ExerciseMO (CoreDataProperties)
 
+@dynamic uid;
 @dynamic name;
 @dynamic createdAt;
 @dynamic notes;

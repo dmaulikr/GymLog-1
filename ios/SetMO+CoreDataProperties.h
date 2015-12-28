@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SetMO (CoreDataProperties)
 
+@property (nonatomic) uint64_t uid;
 @property (nonatomic) NSTimeInterval createdAt;
 @property (nonatomic) int16_t repCount;
 @property (nonatomic) int16_t weight;

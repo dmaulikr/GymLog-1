@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutMO (CoreDataProperties)
 
+@property (nonatomic) uint64_t uid;
 @property (nonatomic) NSTimeInterval createdAt;
 @property (nonatomic) NSTimeInterval workoutStart;
 @property (nonatomic) NSTimeInterval workoutEnd;

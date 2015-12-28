@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ExerciseMO (CoreDataProperties)
 
+@property (nonatomic) uint64_t uid;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nonatomic) NSTimeInterval createdAt;
 @property (nullable, nonatomic, retain) NSString *notes;
