@@ -8,6 +8,7 @@
 
 #import "WorkoutListViewController.h"
 #import "WorkoutMO.h"
+#import "WorkoutsSummary.h"
 
 @implementation WorkoutListViewController
 - (void)viewDidLoad {
@@ -59,5 +60,11 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return 66;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  return [WorkoutsSummary summaryViewFromWorkouts:[WorkoutMO allWorkouts:nil]];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  return 78;
 }
 @end

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="a7M-Rk-TLL" customClass="WorkoutsSummary">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWu-wq-g7R" userLabel="Full-width container">
+                    <rect key="frame" x="8" y="268" width="584" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olm-xh-VQA" userLabel="Left half container">
+                            <rect key="frame" x="0.0" y="0.0" width="292" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-NF-tPY">
+                                    <rect key="frame" x="8" y="8" width="276" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="ano-sV-lDN"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="26"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gym time this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDI-FK-Jb4">
+                                    <rect key="frame" x="8" y="37" width="276" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="GDI-FK-Jb4" secondAttribute="trailing" constant="8" id="2DB-QC-3eL"/>
+                                <constraint firstItem="GDI-FK-Jb4" firstAttribute="leading" secondItem="olm-xh-VQA" secondAttribute="leading" constant="8" id="7NX-zd-QTx"/>
+                                <constraint firstItem="GDI-FK-Jb4" firstAttribute="top" secondItem="Xxo-NF-tPY" secondAttribute="bottom" constant="8" id="Az5-MU-m1d"/>
+                                <constraint firstAttribute="bottom" secondItem="GDI-FK-Jb4" secondAttribute="bottom" constant="6" id="BdD-E1-EnT"/>
+                                <constraint firstItem="Xxo-NF-tPY" firstAttribute="leading" secondItem="olm-xh-VQA" secondAttribute="leading" constant="8" id="VrG-aS-w7e"/>
+                                <constraint firstAttribute="trailing" secondItem="Xxo-NF-tPY" secondAttribute="trailing" constant="8" id="cw8-Xf-DMZ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2c-eR-7eb" userLabel="Right half container">
+                            <rect key="frame" x="292" y="0.0" width="292" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gain this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbJ-vy-dRe">
+                                    <rect key="frame" x="8" y="35" width="276" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1.0lb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-ym-Fu0">
+                                    <rect key="frame" x="8" y="6" width="276" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="hlB-gp-ur6"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="26"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="pbJ-vy-dRe" firstAttribute="leading" secondItem="a2c-eR-7eb" secondAttribute="leading" constant="8" id="DX8-Rs-QbO"/>
+                                <constraint firstAttribute="trailing" secondItem="0Re-ym-Fu0" secondAttribute="trailing" constant="8" id="Y98-9n-r0H"/>
+                                <constraint firstItem="pbJ-vy-dRe" firstAttribute="top" secondItem="0Re-ym-Fu0" secondAttribute="bottom" constant="8" id="YlZ-Qe-lwc"/>
+                                <constraint firstItem="0Re-ym-Fu0" firstAttribute="leading" secondItem="a2c-eR-7eb" secondAttribute="leading" constant="8" id="qBz-w3-Anj"/>
+                                <constraint firstAttribute="bottom" secondItem="pbJ-vy-dRe" secondAttribute="bottom" constant="8" id="rhE-B6-n7V"/>
+                                <constraint firstAttribute="trailing" secondItem="pbJ-vy-dRe" secondAttribute="trailing" constant="8" id="u9N-gd-eAH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="a2c-eR-7eb" firstAttribute="leading" secondItem="olm-xh-VQA" secondAttribute="trailing" id="GM6-iY-Khf"/>
+                        <constraint firstItem="a2c-eR-7eb" firstAttribute="top" secondItem="gWu-wq-g7R" secondAttribute="top" id="HLY-DB-T07"/>
+                        <constraint firstAttribute="trailing" secondItem="a2c-eR-7eb" secondAttribute="trailing" id="ITl-Nl-PnY"/>
+                        <constraint firstItem="olm-xh-VQA" firstAttribute="width" secondItem="a2c-eR-7eb" secondAttribute="width" id="J1w-CG-dnn"/>
+                        <constraint firstAttribute="bottom" secondItem="olm-xh-VQA" secondAttribute="bottom" id="TcG-Xs-6XJ"/>
+                        <constraint firstItem="a2c-eR-7eb" firstAttribute="leading" secondItem="olm-xh-VQA" secondAttribute="trailing" id="fLy-cw-gGE"/>
+                        <constraint firstItem="olm-xh-VQA" firstAttribute="top" secondItem="gWu-wq-g7R" secondAttribute="top" id="hkG-9c-bto"/>
+                        <constraint firstAttribute="bottom" secondItem="a2c-eR-7eb" secondAttribute="bottom" id="mW7-9d-TnA"/>
+                        <constraint firstAttribute="height" constant="64" id="tYi-kd-csd"/>
+                        <constraint firstItem="olm-xh-VQA" firstAttribute="leading" secondItem="gWu-wq-g7R" secondAttribute="leading" id="xSs-aO-C5r"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="gWu-wq-g7R" firstAttribute="centerX" secondItem="a7M-Rk-TLL" secondAttribute="centerX" id="4Xj-X2-kig"/>
+                <constraint firstAttribute="trailing" secondItem="gWu-wq-g7R" secondAttribute="trailing" constant="8" id="IQT-QB-HOd"/>
+                <constraint firstItem="gWu-wq-g7R" firstAttribute="leading" secondItem="a7M-Rk-TLL" secondAttribute="leading" constant="8" id="m0J-4S-spy"/>
+                <constraint firstItem="gWu-wq-g7R" firstAttribute="centerY" secondItem="a7M-Rk-TLL" secondAttribute="centerY" id="xPc-O1-cfJ"/>
+            </constraints>
+            <connections>
+                <outlet property="durationLabel" destination="Xxo-NF-tPY" id="PPW-ja-8wF"/>
+            </connections>
+            <point key="canvasLocation" x="335" y="515"/>
+        </view>
+    </objects>
+</document>
