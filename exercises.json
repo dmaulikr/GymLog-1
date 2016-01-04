@@ -1,0 +1,79 @@
+{
+  "exercises": [
+    {
+      "name": "Assisted chin"
+    },
+    {
+      "name": "Assisted dip"
+    },
+    [
+      "name": "Barbell curl"
+    ],
+    {
+      "name": "Bench press"
+    },
+    {
+      "name": "Cable crunch"
+    },
+    {
+      "name": "Chest press"
+    },
+    {
+      "name": "Concentration curl"
+    },
+    {
+      "name": "Deadlift"
+    },
+    {
+      "name": "Dumbbell bench press"
+    },
+    {
+      "name": "Dumbbell fly"
+    },
+    {
+      "name": "Dumbbell front raise"
+    },
+    {
+      "name": "Dumbbell lateral raise"
+    },
+    {
+      "name": "Dumbbell lunge"
+    },
+    {
+      "name": "Lateral pulldown"
+    },
+    {
+      "name": "Leg curl"
+    },
+    {
+      "name": "Leg press"
+    },
+    {
+      "name": "Leg raise"
+    },
+    {
+      "name": "Long pull"
+    },
+    {
+      "name": "Lying T-Bar Row"
+    },
+    {
+      "name": "Pec fly"
+    },
+    {
+      "name": "Rear delt"
+    },
+    {
+      "name": "Shoulder press"
+    },
+    {
+      "name": "Straight arm dumbbell pullover"
+    },
+    {
+      "name": "Squat"
+    },
+    {
+      "name": "Torso rotation"
+    }
+  ]
+}

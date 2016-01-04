@@ -33,6 +33,8 @@
 		3D9D89B91C2F5B580006783F /* SetMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89B21C2F5B580006783F /* SetMO+CoreDataProperties.m */; };
 		3D9D89BA1C2F5B580006783F /* SetMO.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89B41C2F5B580006783F /* SetMO.m */; };
 		3D9D89BD1C3039E30006783F /* WorkoutRCTWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D89BC1C3039E30006783F /* WorkoutRCTWrapper.m */; };
+		3DAA66021C39F0C00020B3A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA66011C39F0C00020B3A4 /* Main.storyboard */; };
+		3DAA66121C39F14D0020B3A4 /* WorkoutListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66111C39F14D0020B3A4 /* WorkoutListViewController.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +166,9 @@
 		3D9D89B41C2F5B580006783F /* SetMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetMO.m; sourceTree = "<group>"; };
 		3D9D89BB1C3039E30006783F /* WorkoutRCTWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutRCTWrapper.h; sourceTree = "<group>"; };
 		3D9D89BC1C3039E30006783F /* WorkoutRCTWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutRCTWrapper.m; sourceTree = "<group>"; };
+		3DAA66011C39F0C00020B3A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DAA66101C39F14D0020B3A4 /* WorkoutListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutListViewController.h; sourceTree = "<group>"; };
+		3DAA66111C39F14D0020B3A4 /* WorkoutListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutListViewController.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,23 +288,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				3D9D89971C2F2A2C0006783F /* GymLog.xcdatamodeld */,
-				3D9D89AD1C2F5B580006783F /* ExerciseMO+CoreDataProperties.h */,
-				3D9D89AE1C2F5B580006783F /* ExerciseMO+CoreDataProperties.m */,
-				3D9D89AF1C2F5B580006783F /* ExerciseMO.h */,
-				3D9D89B01C2F5B580006783F /* ExerciseMO.m */,
-				3D1E1E031C30CD4600813A13 /* ExerciseRCTWrapper.h */,
-				3D1E1E041C30CD4600813A13 /* ExerciseRCTWrapper.m */,
-				3D9D89B11C2F5B580006783F /* SetMO+CoreDataProperties.h */,
-				3D9D89B21C2F5B580006783F /* SetMO+CoreDataProperties.m */,
-				3D9D89B31C2F5B580006783F /* SetMO.h */,
-				3D9D89B41C2F5B580006783F /* SetMO.m */,
-				3D9D89A91C2F5B580006783F /* WorkoutMO+CoreDataProperties.h */,
-				3D9D89AA1C2F5B580006783F /* WorkoutMO+CoreDataProperties.m */,
-				3D9D89AB1C2F5B580006783F /* WorkoutMO.h */,
-				3D9D89AC1C2F5B580006783F /* WorkoutMO.m */,
-				3D9D89BB1C3039E30006783F /* WorkoutRCTWrapper.h */,
-				3D9D89BC1C3039E30006783F /* WorkoutRCTWrapper.m */,
+				3DAA660F1C39F12B0020B3A4 /* Views */,
+				3DAA660E1C39F1210020B3A4 /* Models */,
 			);
 			name = GymLog;
 			sourceTree = "<group>";
@@ -318,6 +308,40 @@
 				3D9D89951C2E3D5F0006783F /* libRNChart.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3DAA660E1C39F1210020B3A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D9D89971C2F2A2C0006783F /* GymLog.xcdatamodeld */,
+				3D9D89AD1C2F5B580006783F /* ExerciseMO+CoreDataProperties.h */,
+				3D9D89AE1C2F5B580006783F /* ExerciseMO+CoreDataProperties.m */,
+				3D9D89AF1C2F5B580006783F /* ExerciseMO.h */,
+				3D9D89B01C2F5B580006783F /* ExerciseMO.m */,
+				3D1E1E031C30CD4600813A13 /* ExerciseRCTWrapper.h */,
+				3D1E1E041C30CD4600813A13 /* ExerciseRCTWrapper.m */,
+				3D9D89B11C2F5B580006783F /* SetMO+CoreDataProperties.h */,
+				3D9D89B21C2F5B580006783F /* SetMO+CoreDataProperties.m */,
+				3D9D89B31C2F5B580006783F /* SetMO.h */,
+				3D9D89B41C2F5B580006783F /* SetMO.m */,
+				3D9D89A91C2F5B580006783F /* WorkoutMO+CoreDataProperties.h */,
+				3D9D89AA1C2F5B580006783F /* WorkoutMO+CoreDataProperties.m */,
+				3D9D89AB1C2F5B580006783F /* WorkoutMO.h */,
+				3D9D89AC1C2F5B580006783F /* WorkoutMO.m */,
+				3D9D89BB1C3039E30006783F /* WorkoutRCTWrapper.h */,
+				3D9D89BC1C3039E30006783F /* WorkoutRCTWrapper.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3DAA660F1C39F12B0020B3A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DAA66011C39F0C00020B3A4 /* Main.storyboard */,
+				3DAA66101C39F14D0020B3A4 /* WorkoutListViewController.h */,
+				3DAA66111C39F14D0020B3A4 /* WorkoutListViewController.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -587,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAA66021C39F0C00020B3A4 /* Main.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -607,7 +632,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "../node_modules/react-native/packager/react-native-xcode.sh";
+			shellScript = "# ../node_modules/react-native/packager/react-native-xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -625,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9D89BA1C2F5B580006783F /* SetMO.m in Sources */,
+				3DAA66121C39F14D0020B3A4 /* WorkoutListViewController.m in Sources */,
 				3D9D89B91C2F5B580006783F /* SetMO+CoreDataProperties.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				3D9D89B61C2F5B580006783F /* WorkoutMO.m in Sources */,

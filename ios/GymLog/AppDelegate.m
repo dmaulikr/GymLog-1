@@ -15,6 +15,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.9843137255 green:0.3215686275 blue:0.2 alpha:1.0]];
+  [[UINavigationBar appearance] setTranslucent:NO];
+  [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                         NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                         }];
+  return YES;
+  
   NSURL *jsCodeLocation;
 
   /**

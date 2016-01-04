@@ -34,7 +34,6 @@ const AddExercise = React.createClass({
       notes: exercise.notes,
       sets: exercise.sets
     });
-    console.log('New sets: ' + JSON.stringify(exercise.sets));
     this.props.setExercise(exercise, index);
   },
   render() {
@@ -53,7 +52,6 @@ const AddExercise = React.createClass({
       let array = [];
       for (var i = length - 1; i >= 0; i--)
         array[i] = i;
-      console.log(`Length: ${length}, array: ${JSON.stringify(array)}`);
       return array;
     };
     const exercise = this.state;
@@ -78,6 +76,7 @@ const AddExercise = React.createClass({
                     value={this.state.name}
                     onChangeText={(text) => this.setState({ name: text })}
                     />
+                  {this.state.name.length > 0 ? <ExerciseSuggestions /> : null}
                 </View>
               );
             else if (rowIndex === exercise.sets.length + 1)
@@ -96,7 +95,6 @@ const AddExercise = React.createClass({
               );
             else {
               const setIndex = rowIndex - 1;
-              console.log(`Set index: ${setIndex}, set: ${JSON.stringify(exercise.sets[setIndex])}`);
               const set = exercise.sets[setIndex];
               return <RepEntry count={set.repCount} weight={set.weight} />;
             }

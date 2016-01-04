@@ -28,7 +28,6 @@ const AddRep = React.createClass({
             repCount: parseInt(this.state.reps, 10), 
             weight: parseInt(this.state.weight)
           }, this.props.exercise, (error, set, exercise) => {
-            console.log('Got exercise: ' + JSON.stringify(exercise));
             this.props.setExercise(exercise, this.props.index);
           }
         );

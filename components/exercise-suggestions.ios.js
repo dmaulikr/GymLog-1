@@ -1,7 +1,8 @@
 const React = require('react-native');
 const {
   StyleSheet,
-  ListView
+  ListView,
+  TouchableOpacity
 } = React;
 const Colors = require('../colors.json');
 import DetailCell from './detail-cell';
@@ -19,6 +20,8 @@ const suggestions = [
 
 const ExerciseSuggestions = React.createClass({
   render() {
+    let onSelect = this.props.onAutofillSelect;
+    console.log('On select: ' + onSelect);
     return (
       <ListView
         style={styles.container}
@@ -26,7 +29,10 @@ const ExerciseSuggestions = React.createClass({
           (new ListView.DataSource({rowHasChanged: (r1, r2) => false}))
             .cloneWithRows(suggestions)
         }
-        renderRow={rowData => <DetailCell primaryText={rowData.name} detailText={`Last time: ${rowData.lastTime}`} />}
+        renderRow={rowData => <TouchableOpacity onPress={(_) => onSelect(rowData.name)}>
+                                      <DetailCell primaryText={rowData.name} detailText={`Last time: ${rowData.lastTime}`} />
+                                    </TouchableOpacity>
+                    }
       />
     )
   }
