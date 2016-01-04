@@ -20,6 +20,7 @@
   [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                          NSForegroundColorAttributeName: [UIColor whiteColor]
                                                          }];
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   return YES;
   
   NSURL *jsCodeLocation;

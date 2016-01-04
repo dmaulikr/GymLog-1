@@ -9,10 +9,16 @@
 #import "WorkoutListViewController.h"
 #import "WorkoutMO.h"
 #import "WorkoutsSummary.h"
+#import "WorkoutDetailsViewController.h"
 
 @implementation WorkoutListViewController
 - (void)viewDidLoad {
   self.title = @"Workouts";
+  [super viewDidLoad];
+}
+- (void)viewWillAppear:(BOOL)animated {
+  [self.tableView reloadData];
+  [super viewWillAppear:animated];
 }
 
 # pragma mark - Table View Data Source
@@ -66,5 +72,12 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   return 78;
+}
+
+# pragma mark - Table View Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  [self.navigationController
+    pushViewController:[WorkoutDetailsViewController detailsForWorkout:[WorkoutMO allWorkouts:nil][0]]
+              animated:YES];
 }
 @end

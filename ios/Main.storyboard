@@ -34,6 +34,34 @@
             </objects>
             <point key="canvasLocation" x="1768" y="1015"/>
         </scene>
+        <!--Workout Details View Controller-->
+        <scene sceneID="9HD-gH-Ylo">
+            <objects>
+                <tableViewController storyboardIdentifier="WorkoutDetailsViewController" id="IuE-Jp-4Tc" customClass="WorkoutDetailsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ffw-lb-21w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6As-qa-ngd">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6As-qa-ngd" id="4fO-14-gMv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IuE-Jp-4Tc" id="TJJ-Wn-PRe"/>
+                            <outlet property="delegate" destination="IuE-Jp-4Tc" id="ldr-1W-Vvm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CKE-jQ-Ina" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2390" y="1015"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="5FJ-8S-uQ8">
             <objects>
