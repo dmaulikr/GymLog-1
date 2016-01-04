@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WorkoutMO.h"
 
-@interface WorkoutDetailsViewController : UITableViewController
+@interface WorkoutDetailsViewController : UIViewController
 + (WorkoutDetailsViewController *)detailsForWorkout:(WorkoutMO *)workout;
 @end

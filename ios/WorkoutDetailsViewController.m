@@ -8,8 +8,10 @@
 
 #import "WorkoutDetailsViewController.h"
 #import "WorkoutDetails.h"
+#import "WorkoutActions.h"
 
 @interface WorkoutDetailsViewController()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WorkoutMO *workout;
 @end
 
@@ -33,6 +35,17 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return [self.workout.exercises count];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *cellID = @"cellID";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+  if (!cell)
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+  
+  cell.textLabel.text = @"Bicep curl";
+  cell.detailTextLabel.text = @"5@60";
+  
+  return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   return [WorkoutDetails detailsFromWorkout:self.workout];

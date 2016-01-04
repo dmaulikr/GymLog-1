@@ -40,6 +40,8 @@
 		3DAA661A1C3A13900020B3A4 /* WorkoutDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66191C3A13900020B3A4 /* WorkoutDetailsViewController.m */; };
 		3DAA661D1C3A18FA0020B3A4 /* WorkoutDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA661C1C3A18FA0020B3A4 /* WorkoutDetails.m */; };
 		3DAA661F1C3A1A070020B3A4 /* WorkoutDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA661E1C3A1A070020B3A4 /* WorkoutDetails.xib */; };
+		3DAA66221C3A1E310020B3A4 /* WorkoutActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66211C3A1E310020B3A4 /* WorkoutActions.m */; };
+		3DAA66241C3A1E5C0020B3A4 /* WorkoutActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +184,9 @@
 		3DAA661B1C3A18FA0020B3A4 /* WorkoutDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutDetails.h; sourceTree = "<group>"; };
 		3DAA661C1C3A18FA0020B3A4 /* WorkoutDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutDetails.m; sourceTree = "<group>"; };
 		3DAA661E1C3A1A070020B3A4 /* WorkoutDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutDetails.xib; sourceTree = "<group>"; };
+		3DAA66201C3A1E310020B3A4 /* WorkoutActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutActions.h; sourceTree = "<group>"; };
+		3DAA66211C3A1E310020B3A4 /* WorkoutActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutActions.m; sourceTree = "<group>"; };
+		3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutActions.xib; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -361,6 +366,9 @@
 				3DAA661B1C3A18FA0020B3A4 /* WorkoutDetails.h */,
 				3DAA661C1C3A18FA0020B3A4 /* WorkoutDetails.m */,
 				3DAA661E1C3A1A070020B3A4 /* WorkoutDetails.xib */,
+				3DAA66201C3A1E310020B3A4 /* WorkoutActions.h */,
+				3DAA66211C3A1E310020B3A4 /* WorkoutActions.m */,
+				3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 				3DAA66021C39F0C00020B3A4 /* Main.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				3DAA66241C3A1E5C0020B3A4 /* WorkoutActions.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +696,7 @@
 				3DAA661D1C3A18FA0020B3A4 /* WorkoutDetails.m in Sources */,
 				3D9D89991C2F2A2D0006783F /* GymLog.xcdatamodeld in Sources */,
 				3DAA66151C3A0B010020B3A4 /* WorkoutsSummary.m in Sources */,
+				3DAA66221C3A1E310020B3A4 /* WorkoutActions.m in Sources */,
 				3D9D89B81C2F5B580006783F /* ExerciseMO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

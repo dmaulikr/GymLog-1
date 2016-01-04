@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Workouts-->
@@ -35,32 +36,63 @@
             <point key="canvasLocation" x="1768" y="1015"/>
         </scene>
         <!--Workout Details View Controller-->
-        <scene sceneID="9HD-gH-Ylo">
+        <scene sceneID="yU4-ac-WJ8">
             <objects>
-                <tableViewController storyboardIdentifier="WorkoutDetailsViewController" id="IuE-Jp-4Tc" customClass="WorkoutDetailsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ffw-lb-21w">
+                <viewController storyboardIdentifier="WorkoutDetailsViewController" id="ojv-UM-LKM" customClass="WorkoutDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tKm-84-Aqv"/>
+                        <viewControllerLayoutGuide type="bottom" id="xZJ-nh-YtQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KHq-7q-b15">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-AE-wTZ">
+                                <rect key="frame" x="235" y="550" width="130" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="rhR-PH-eNC"/>
+                                </constraints>
+                                <state key="normal" title="Finish workout">
+                                    <color key="titleColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-Fb-IB8">
+                                <rect key="frame" x="20" y="500" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cZj-zH-L4R"/>
+                                </constraints>
+                                <state key="normal" title="+ Add exercise"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-GG-jbk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ojv-UM-LKM" id="j3G-yg-VzO"/>
+                                    <outlet property="delegate" destination="ojv-UM-LKM" id="U60-Rs-Awh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6As-qa-ngd">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6As-qa-ngd" id="4fO-14-gMv">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="IuE-Jp-4Tc" id="TJJ-Wn-PRe"/>
-                            <outlet property="delegate" destination="IuE-Jp-4Tc" id="ldr-1W-Vvm"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CKE-jQ-Ina" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="top" secondItem="ycD-GG-jbk" secondAttribute="bottom" constant="8" id="Bsj-NO-HxA"/>
+                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="centerX" secondItem="KHq-7q-b15" secondAttribute="centerX" id="TjK-sr-uwV"/>
+                            <constraint firstItem="EQd-AE-wTZ" firstAttribute="centerX" secondItem="KHq-7q-b15" secondAttribute="centerX" id="Y3y-qb-eRh"/>
+                            <constraint firstAttribute="trailing" secondItem="Ez5-Fb-IB8" secondAttribute="trailing" constant="20" id="Y5q-P6-Fvf"/>
+                            <constraint firstItem="ycD-GG-jbk" firstAttribute="top" secondItem="KHq-7q-b15" secondAttribute="topMargin" id="ao6-CX-MUy"/>
+                            <constraint firstItem="EQd-AE-wTZ" firstAttribute="top" secondItem="Ez5-Fb-IB8" secondAttribute="bottom" constant="20" id="b1o-Tx-ypE"/>
+                            <constraint firstAttribute="bottom" secondItem="EQd-AE-wTZ" secondAttribute="bottom" constant="20" id="imB-ts-tAu"/>
+                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leading" constant="20" id="k7R-cK-2Dw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycD-GG-jbk" secondAttribute="trailing" constant="-20" id="lFd-j3-eyC"/>
+                            <constraint firstItem="ycD-GG-jbk" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="vvw-hb-V3U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ycD-GG-jbk" id="j8F-oN-b0H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEX-Mh-pKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="1015"/>
+            <point key="canvasLocation" x="2394" y="1015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5FJ-8S-uQ8">
