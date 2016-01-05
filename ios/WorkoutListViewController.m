@@ -10,6 +10,7 @@
 #import "WorkoutMO.h"
 #import "WorkoutsSummary.h"
 #import "WorkoutDetailsViewController.h"
+#import "TitleDetailCell.h"
 
 @implementation WorkoutListViewController
 - (void)viewDidLoad {
@@ -30,21 +31,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *cellID = @"cellID";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+  TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
   if (!cell)
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    cell = [[TitleDetailCell alloc] initWithCellID:cellID];
   
   WorkoutMO *workout = [WorkoutMO allWorkouts:nil][indexPath.row];
   NSDate *workoutStart = [NSDate dateWithTimeIntervalSinceReferenceDate:workout.workoutStart];
   NSDateFormatter *startFormatter = [[NSDateFormatter alloc] init];
   [startFormatter setDateFormat:@"MM/yyyy HH:mm"];
-  NSString *cellTitleText = [NSString stringWithFormat:@"%@", [startFormatter stringFromDate:workoutStart]];
-  NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:cellTitleText];
-  NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-  paragraphStyle.lineHeightMultiple = 1.3;
-  [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, cellTitleText.length)];
-  cell.textLabel.attributedText = attributedString;
-  cell.textLabel.font = [UIFont boldSystemFontOfSize:17.0];
+  cell.title = [NSString stringWithFormat:@"%@", [startFormatter stringFromDate:workoutStart]];
   
   int workoutDurationSeconds = (int)workout.workoutEnd - (int)workout.workoutStart;
   int workoutHours = workoutDurationSeconds / 3600;
@@ -55,23 +50,20 @@
     detailText = [NSString stringWithFormat:@"%@ • %@", workoutDuration, workout.location];
   else
     detailText = workoutDuration;
-  attributedString = [[NSMutableAttributedString alloc] initWithString:detailText];
-  [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, detailText.length)];
-  cell.detailTextLabel.attributedText = attributedString;
-  cell.detailTextLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.66];
+  cell.details = detailText;
   
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   
   return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  return 66;
+  return 64;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
   return [WorkoutsSummary summaryViewFromWorkouts:[WorkoutMO allWorkouts:nil]];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return 78;
+  return 76;
 }
 
 # pragma mark - Table View Delegate

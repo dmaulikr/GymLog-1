@@ -42,6 +42,7 @@
 		3DAA661F1C3A1A070020B3A4 /* WorkoutDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA661E1C3A1A070020B3A4 /* WorkoutDetails.xib */; };
 		3DAA66221C3A1E310020B3A4 /* WorkoutActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66211C3A1E310020B3A4 /* WorkoutActions.m */; };
 		3DAA66241C3A1E5C0020B3A4 /* WorkoutActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */; };
+		3DAA66271C3B652B0020B3A4 /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66261C3B652B0020B3A4 /* TitleDetailCell.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		3DAA66201C3A1E310020B3A4 /* WorkoutActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutActions.h; sourceTree = "<group>"; };
 		3DAA66211C3A1E310020B3A4 /* WorkoutActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutActions.m; sourceTree = "<group>"; };
 		3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutActions.xib; sourceTree = "<group>"; };
+		3DAA66251C3B652B0020B3A4 /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleDetailCell.h; sourceTree = "<group>"; };
+		3DAA66261C3B652B0020B3A4 /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleDetailCell.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +361,8 @@
 				3DAA66011C39F0C00020B3A4 /* Main.storyboard */,
 				3DAA66101C39F14D0020B3A4 /* WorkoutListViewController.h */,
 				3DAA66111C39F14D0020B3A4 /* WorkoutListViewController.m */,
+				3DAA66251C3B652B0020B3A4 /* TitleDetailCell.h */,
+				3DAA66261C3B652B0020B3A4 /* TitleDetailCell.m */,
 				3DAA66131C3A0B010020B3A4 /* WorkoutsSummary.h */,
 				3DAA66141C3A0B010020B3A4 /* WorkoutsSummary.m */,
 				3DAA66161C3A0D970020B3A4 /* WorkoutsSummary.xib */,
@@ -684,6 +689,7 @@
 				3D9D89BA1C2F5B580006783F /* SetMO.m in Sources */,
 				3DAA66121C39F14D0020B3A4 /* WorkoutListViewController.m in Sources */,
 				3D9D89B91C2F5B580006783F /* SetMO+CoreDataProperties.m in Sources */,
+				3DAA66271C3B652B0020B3A4 /* TitleDetailCell.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				3D9D89B61C2F5B580006783F /* WorkoutMO.m in Sources */,
 				3D9D89B51C2F5B580006783F /* WorkoutMO+CoreDataProperties.m in Sources */,
