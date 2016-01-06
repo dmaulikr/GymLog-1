@@ -46,6 +46,9 @@
 		3DAA662A1C3B6C620020B3A4 /* AddExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66291C3B6C620020B3A4 /* AddExerciseViewController.m */; };
 		3DAA662D1C3CBB6C0020B3A4 /* AddSetToExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA662C1C3CBB6C0020B3A4 /* AddSetToExercise.m */; };
 		3DAA662F1C3CBBEB0020B3A4 /* AddSetToExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA662E1C3CBBEB0020B3A4 /* AddSetToExercise.xib */; };
+		3DAA66341C3DA54A0020B3A4 /* NotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66321C3DA54A0020B3A4 /* NotesCell.m */; };
+		3DAA66351C3DA54A0020B3A4 /* NotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA66331C3DA54A0020B3A4 /* NotesCell.xib */; };
+		3DAA66381C3DA83E0020B3A4 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66371C3DA83E0020B3A4 /* UITextView+Placeholder.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +202,11 @@
 		3DAA662C1C3CBB6C0020B3A4 /* AddSetToExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSetToExercise.m; sourceTree = "<group>"; };
 		3DAA662E1C3CBBEB0020B3A4 /* AddSetToExercise.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSetToExercise.xib; sourceTree = "<group>"; };
 		3DAA66301C3CC1A40020B3A4 /* WorkoutActionsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutActionsDelegate.h; sourceTree = "<group>"; };
+		3DAA66311C3DA54A0020B3A4 /* NotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesCell.h; sourceTree = "<group>"; };
+		3DAA66321C3DA54A0020B3A4 /* NotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesCell.m; sourceTree = "<group>"; };
+		3DAA66331C3DA54A0020B3A4 /* NotesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesCell.xib; sourceTree = "<group>"; };
+		3DAA66361C3DA83E0020B3A4 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		3DAA66371C3DA83E0020B3A4 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,6 +397,11 @@
 				3DAA662B1C3CBB6C0020B3A4 /* AddSetToExercise.h */,
 				3DAA662C1C3CBB6C0020B3A4 /* AddSetToExercise.m */,
 				3DAA662E1C3CBBEB0020B3A4 /* AddSetToExercise.xib */,
+				3DAA66311C3DA54A0020B3A4 /* NotesCell.h */,
+				3DAA66321C3DA54A0020B3A4 /* NotesCell.m */,
+				3DAA66331C3DA54A0020B3A4 /* NotesCell.xib */,
+				3DAA66361C3DA83E0020B3A4 /* UITextView+Placeholder.h */,
+				3DAA66371C3DA83E0020B3A4 /* UITextView+Placeholder.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -667,6 +680,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				3DAA66241C3A1E5C0020B3A4 /* WorkoutActions.xib in Resources */,
+				3DAA66351C3DA54A0020B3A4 /* NotesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,9 +727,11 @@
 				3D1E1E051C30CD4600813A13 /* ExerciseRCTWrapper.m in Sources */,
 				3DAA662D1C3CBB6C0020B3A4 /* AddSetToExercise.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				3DAA66341C3DA54A0020B3A4 /* NotesCell.m in Sources */,
 				3DAA661A1C3A13900020B3A4 /* WorkoutDetailsViewController.m in Sources */,
 				3D9D89A51C2F33290006783F /* DataController.m in Sources */,
 				3D9D89BD1C3039E30006783F /* WorkoutRCTWrapper.m in Sources */,
+				3DAA66381C3DA83E0020B3A4 /* UITextView+Placeholder.m in Sources */,
 				3D9D89B71C2F5B580006783F /* ExerciseMO+CoreDataProperties.m in Sources */,
 				3DAA661D1C3A18FA0020B3A4 /* WorkoutDetails.m in Sources */,
 				3D9D89991C2F2A2D0006783F /* GymLog.xcdatamodeld in Sources */,

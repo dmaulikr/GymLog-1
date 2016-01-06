@@ -10,6 +10,7 @@
 @import QuartzCore;
 #import "TitleDetailCell.h"
 #import "AddSetToExercise.h"
+#import "NotesCell.h"
 
 @interface AddExerciseViewController()
 @property (strong, nonatomic) IBOutlet UITextField *exerciseNameField;
@@ -59,13 +60,14 @@
   if (self.isEditingExerciseName)
     return 2;
   else
-    return [self.workout.exercises count] + 2;
+    return [self.workout.exercises count] + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (self.isEditingExerciseName) {
     TitleDetailCell *cell = [[TitleDetailCell alloc] initWithCellID:@"CellID"];
     cell.title = @"Bicep curl";
     cell.details = @"Last time: yesterday";
+    cell.backgroundColor = [UIColor colorWithRed:240 green:240 blue:240 alpha:1.0];
     return cell;
   }
   else {
@@ -76,6 +78,17 @@
       return [AddSetToExercise addSetCell];
     }
   }
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+  return [NotesCell notesCell];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+  return 80;
+}
+
+# pragma mark - Table View Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
 }
 
 @end

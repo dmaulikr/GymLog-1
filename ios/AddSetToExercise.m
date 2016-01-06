@@ -31,6 +31,22 @@
   bottomBorder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1f].CGColor;
   [addSetCell.weightField.layer addSublayer:bottomBorder];
   
+  // Draw border below cell
+  bottomBorder = [CALayer layer];
+  bottomBorder.frame = CGRectMake(20, 44.0f - 0.5, 1000.0f, 0.5f);
+  bottomBorder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.15f].CGColor;
+  [addSetCell.layer addSublayer:bottomBorder];
+  
+  addSetCell.selectionStyle = UITableViewCellSelectionStyleNone;
+  
   return addSetCell;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  UITouch *touch = [[event allTouches] anyObject];
+  if (CGRectContainsPoint(self.repsField.frame, [touch locationInView:self]))
+    [self.repsField becomeFirstResponder];
+  else if (CGRectContainsPoint(self.weightField.frame, [touch locationInView:self]))
+    [self.weightField becomeFirstResponder];
 }
 @end
