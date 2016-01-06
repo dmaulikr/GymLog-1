@@ -7,13 +7,25 @@
 //
 
 #import "WorkoutActions.h"
+@import QuartzCore;
+
+@interface WorkoutActions()
+- (IBAction)addExercise:(id)sender;
+@end
 
 @implementation WorkoutActions
+@synthesize delegate;
+
 + (WorkoutActions *)workoutActions {
   WorkoutActions *actions = [[[NSBundle mainBundle] loadNibNamed:@"WorkoutActions" owner:nil options:nil] lastObject];
   if (!actions)
     return nil;
   
   return actions;
+}
+
+- (IBAction)addExercise:(id)sender {
+  if ([self.delegate respondsToSelector:@selector(didSelectAddExercise)])
+    [self.delegate didSelectAddExercise];
 }
 @end

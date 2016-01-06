@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorkoutActionsDelegate.h"
 
 @interface WorkoutActions : UIView
+@property (weak, nonatomic) id<WorkoutActionsDelegate> delegate;
 + (WorkoutActions *)workoutActions;
 @end

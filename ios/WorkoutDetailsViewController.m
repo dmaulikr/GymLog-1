@@ -9,9 +9,11 @@
 #import "WorkoutDetailsViewController.h"
 #import "WorkoutDetails.h"
 #import "WorkoutActions.h"
+#import "AddExerciseViewController.h"
 
 @interface WorkoutDetailsViewController()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet WorkoutActions *workoutActions;
 @property (strong, nonatomic) WorkoutMO *workout;
 @end
 
@@ -27,6 +29,8 @@
   NSDateFormatter *startFormatter = [[NSDateFormatter alloc] init];
   [startFormatter setDateFormat:@"MM/yyyy"];
   self.title = [startFormatter stringFromDate:workoutStart];
+  
+  self.workoutActions.delegate = self;
 }
 
 # pragma mark - Table View Data Source
@@ -52,6 +56,11 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   return 72;
+}
+
+#pragma mark - Workout Actions Delegate
+- (void)didSelectAddExercise {
+  [self.navigationController pushViewController:[AddExerciseViewController addExerciseToWorkout:self.workout] animated:YES];
 }
 
 @end

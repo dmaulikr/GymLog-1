@@ -47,24 +47,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-AE-wTZ">
-                                <rect key="frame" x="235" y="550" width="130" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMN-et-Kf7" customClass="WorkoutActions">
+                                <rect key="frame" x="0.0" y="491" width="600" height="109"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-AE-wTZ">
+                                        <rect key="frame" x="235" y="71" width="130" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="06Q-gU-DFT"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="gvT-3m-paX"/>
+                                            <constraint firstAttribute="width" constant="130" id="rhR-PH-eNC"/>
+                                        </constraints>
+                                        <state key="normal" title="Finish workout">
+                                            <color key="titleColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-Fb-IB8">
+                                        <rect key="frame" x="20" y="15" width="560" height="44"/>
+                                        <color key="backgroundColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="rZB-DK-CsG"/>
+                                        </constraints>
+                                        <state key="normal" title="+ Add exercise">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addExercise:" destination="UMN-et-Kf7" eventType="touchUpInside" id="4EH-qV-WBy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="rhR-PH-eNC"/>
+                                    <constraint firstItem="Ez5-Fb-IB8" firstAttribute="centerX" secondItem="UMN-et-Kf7" secondAttribute="centerX" id="86s-6i-9cA"/>
+                                    <constraint firstItem="EQd-AE-wTZ" firstAttribute="centerX" secondItem="UMN-et-Kf7" secondAttribute="centerX" id="BWT-Rk-BCr"/>
+                                    <constraint firstItem="Ez5-Fb-IB8" firstAttribute="leading" secondItem="UMN-et-Kf7" secondAttribute="leading" constant="20" id="U09-YA-Gfo"/>
+                                    <constraint firstAttribute="height" constant="109" id="ZNc-sb-HN9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ez5-Fb-IB8" secondAttribute="trailing" constant="20" id="b0C-Ee-MR9"/>
+                                    <constraint firstAttribute="bottom" secondItem="EQd-AE-wTZ" secondAttribute="bottom" constant="8" id="eMP-4I-vUv"/>
+                                    <constraint firstItem="EQd-AE-wTZ" firstAttribute="top" secondItem="Ez5-Fb-IB8" secondAttribute="bottom" constant="12" id="t2D-cK-zcR"/>
                                 </constraints>
-                                <state key="normal" title="Finish workout">
-                                    <color key="titleColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-Fb-IB8">
-                                <rect key="frame" x="20" y="500" width="560" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cZj-zH-L4R"/>
-                                </constraints>
-                                <state key="normal" title="+ Add exercise"/>
-                            </button>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-GG-jbk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ojv-UM-LKM" id="j3G-yg-VzO"/>
@@ -74,25 +97,79 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="top" secondItem="ycD-GG-jbk" secondAttribute="bottom" constant="8" id="Bsj-NO-HxA"/>
-                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="centerX" secondItem="KHq-7q-b15" secondAttribute="centerX" id="TjK-sr-uwV"/>
-                            <constraint firstItem="EQd-AE-wTZ" firstAttribute="centerX" secondItem="KHq-7q-b15" secondAttribute="centerX" id="Y3y-qb-eRh"/>
-                            <constraint firstAttribute="trailing" secondItem="Ez5-Fb-IB8" secondAttribute="trailing" constant="20" id="Y5q-P6-Fvf"/>
+                            <constraint firstItem="xZJ-nh-YtQ" firstAttribute="top" secondItem="UMN-et-Kf7" secondAttribute="bottom" id="97E-Pd-AkA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UMN-et-Kf7" secondAttribute="trailing" constant="-20" id="QZZ-rp-epA"/>
+                            <constraint firstItem="xZJ-nh-YtQ" firstAttribute="top" secondItem="UMN-et-Kf7" secondAttribute="bottom" id="Zq7-Ca-4S4"/>
                             <constraint firstItem="ycD-GG-jbk" firstAttribute="top" secondItem="KHq-7q-b15" secondAttribute="topMargin" id="ao6-CX-MUy"/>
-                            <constraint firstItem="EQd-AE-wTZ" firstAttribute="top" secondItem="Ez5-Fb-IB8" secondAttribute="bottom" constant="20" id="b1o-Tx-ypE"/>
-                            <constraint firstAttribute="bottom" secondItem="EQd-AE-wTZ" secondAttribute="bottom" constant="20" id="imB-ts-tAu"/>
-                            <constraint firstItem="Ez5-Fb-IB8" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leading" constant="20" id="k7R-cK-2Dw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UMN-et-Kf7" secondAttribute="trailing" constant="-20" id="dqe-9b-xDg"/>
+                            <constraint firstItem="UMN-et-Kf7" firstAttribute="top" secondItem="ycD-GG-jbk" secondAttribute="bottom" id="f6X-8f-jCf"/>
+                            <constraint firstItem="UMN-et-Kf7" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="fET-gl-BMs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ycD-GG-jbk" secondAttribute="trailing" constant="-20" id="lFd-j3-eyC"/>
+                            <constraint firstItem="UMN-et-Kf7" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="p2v-1X-Vju"/>
                             <constraint firstItem="ycD-GG-jbk" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="vvw-hb-V3U"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ycD-GG-jbk" id="j8F-oN-b0H"/>
+                        <outlet property="workoutActions" destination="UMN-et-Kf7" id="XWL-1v-VNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEX-Mh-pKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2394" y="1015"/>
+        </scene>
+        <!--Add Exercise View Controller-->
+        <scene sceneID="VA4-V2-D0V">
+            <objects>
+                <viewController storyboardIdentifier="AddExerciseViewController" id="wgH-8c-MtR" customClass="AddExerciseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m4u-FM-qZH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fsu-ne-yJV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I4O-Nh-hya">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exercise name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-g6-d9f">
+                                <rect key="frame" x="20" y="20" width="580" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="OzT-lB-dG7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="exerciseNameDidChange:" destination="wgH-8c-MtR" eventType="valueChanged" id="Dbs-jG-mtM"/>
+                                    <action selector="exerciseNameDidFocus:" destination="wgH-8c-MtR" eventType="editingDidBegin" id="Ne1-xS-gcs"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OjR-fZ-d0q">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wgH-8c-MtR" id="w6e-HZ-CD7"/>
+                                    <outlet property="delegate" destination="wgH-8c-MtR" id="u8i-kx-6gs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OjR-fZ-d0q" firstAttribute="top" secondItem="oAa-g6-d9f" secondAttribute="bottom" id="BpM-5U-GfF"/>
+                            <constraint firstItem="oAa-g6-d9f" firstAttribute="top" secondItem="m4u-FM-qZH" secondAttribute="bottom" id="M0e-3A-P5k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OjR-fZ-d0q" secondAttribute="trailing" constant="-20" id="OB9-td-K7E"/>
+                            <constraint firstItem="Fsu-ne-yJV" firstAttribute="top" secondItem="OjR-fZ-d0q" secondAttribute="bottom" id="Q9j-xN-rez"/>
+                            <constraint firstItem="oAa-g6-d9f" firstAttribute="leading" secondItem="I4O-Nh-hya" secondAttribute="leadingMargin" id="XeB-6w-nKW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oAa-g6-d9f" secondAttribute="trailing" constant="-20" id="n07-ve-L2E"/>
+                            <constraint firstItem="OjR-fZ-d0q" firstAttribute="leading" secondItem="I4O-Nh-hya" secondAttribute="leadingMargin" constant="-20" id="oF0-mY-1hV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseNameField" destination="oAa-g6-d9f" id="5r5-Cs-oEr"/>
+                        <outlet property="tableView" destination="OjR-fZ-d0q" id="NtS-G9-ES3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jdw-Gr-PSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3011" y="1015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5FJ-8S-uQ8">
