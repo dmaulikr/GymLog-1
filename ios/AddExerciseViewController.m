@@ -12,6 +12,7 @@
 #import "AddSetToExercise.h"
 #import "NotesCell.h"
 #import "SetMO.h"
+#import "ExerciseSetCell.h"
 
 @interface AddExerciseViewController()
 @property (strong, nonatomic) IBOutlet UITextField *exerciseNameField;
@@ -19,12 +20,14 @@
 @property (strong, nonatomic) AddSetToExercise *addSetCell;
 @property (nonatomic) BOOL isEditingExerciseName;
 @property (strong, nonatomic) WorkoutMO *workout;
+@property (strong, nonatomic) NSArray *sets;
 
 - (IBAction)exerciseNameDidFocus:(id)sender;
 - (IBAction)exerciseNameDidChange:(id)sender;
 - (IBAction)finishExercise:(id)sender;
 
 - (void)finishEditingExerciseName;
+- (void)getSetsArray;
 @end
 
 @implementation AddExerciseViewController
@@ -76,6 +79,10 @@
   [self.tableView reloadData];
 }
 
+- (void)getSetsArray {
+  self.sets = [self.exercise.sets sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
+}
+
 #pragma mark - Table View Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -96,7 +103,7 @@
   }
   else {
     if (indexPath.row < [self.exercise.sets count]) {
-      return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellID"];
+      return [ExerciseSetCell cellForSet:self.sets[indexPath.row]];
     }
     else {
       self.addSetCell = [AddSetToExercise addSetCell];
@@ -132,6 +139,7 @@
                               @"exercise": self.exercise
                               };
   [SetMO create:setParams];
+  [self getSetsArray];
   [self.tableView reloadData];
 }
 
