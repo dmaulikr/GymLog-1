@@ -149,7 +149,13 @@
 
 # pragma mark - Table View Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+  if (self.isEditingExerciseName) {
+    self.exerciseNameField.text = [self filteredExercises][indexPath.row][@"name"];
+    [self finishEditingExerciseName];
+  }
+  else {
+    return;
+  }
 }
 
 # pragma mark - Add Set Delegate
