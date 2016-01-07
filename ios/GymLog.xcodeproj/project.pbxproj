@@ -51,6 +51,7 @@
 		3DAA66381C3DA83E0020B3A4 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA66371C3DA83E0020B3A4 /* UITextView+Placeholder.m */; };
 		3DAA663C1C3E01E40020B3A4 /* ExerciseSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA663B1C3E01E40020B3A4 /* ExerciseSetCell.m */; };
 		3DAA663E1C3E036E0020B3A4 /* ExerciseSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA663D1C3E036E0020B3A4 /* ExerciseSetCell.xib */; };
+		3DAA66401C3E074C0020B3A4 /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA663F1C3E074C0020B3A4 /* exercises.json */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +214,7 @@
 		3DAA663A1C3E01E40020B3A4 /* ExerciseSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetCell.h; sourceTree = "<group>"; };
 		3DAA663B1C3E01E40020B3A4 /* ExerciseSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetCell.m; sourceTree = "<group>"; };
 		3DAA663D1C3E036E0020B3A4 /* ExerciseSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseSetCell.xib; sourceTree = "<group>"; };
+		3DAA663F1C3E074C0020B3A4 /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -332,6 +334,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				3DAA663F1C3E074C0020B3A4 /* exercises.json */,
 				3DAA660F1C39F12B0020B3A4 /* Views */,
 				3DAA660E1C39F1210020B3A4 /* Models */,
 			);
@@ -688,6 +691,7 @@
 				3DAA662F1C3CBBEB0020B3A4 /* AddSetToExercise.xib in Resources */,
 				3DAA66021C39F0C00020B3A4 /* Main.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3DAA66401C3E074C0020B3A4 /* exercises.json in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				3DAA66241C3A1E5C0020B3A4 /* WorkoutActions.xib in Resources */,
 				3DAA663E1C3E036E0020B3A4 /* ExerciseSetCell.xib in Resources */,

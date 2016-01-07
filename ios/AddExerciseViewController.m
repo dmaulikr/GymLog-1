@@ -21,6 +21,7 @@
 @property (nonatomic) BOOL isEditingExerciseName;
 @property (strong, nonatomic) WorkoutMO *workout;
 @property (strong, nonatomic) NSArray *sets;
+@property (strong, nonatomic) NSArray *exercises;
 
 - (IBAction)exerciseNameDidFocus:(id)sender;
 - (IBAction)exerciseNameDidChange:(id)sender;
@@ -44,7 +45,6 @@
 - (void)viewDidLoad {
   self.title = @"Add Exercise";
   self.isEditingExerciseName = NO;
-  NSLog(@"Exercise: %@", self.exercise);
   
   // Draw border below name field
   CALayer *bottomBorder = [CALayer layer];
@@ -54,6 +54,18 @@
   
   UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
   self.navigationItem.rightBarButtonItem = finishButton;
+  
+  NSError *error = nil;
+  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"exercises"
+                                                       ofType:@"json"];
+  NSLog(@"File path: %@", filePath);
+  NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *exercisesJSON = [NSJSONSerialization JSONObjectWithData:dataFromFile
+                                                       options:kNilOptions
+                                                         error:&error];
+  NSLog(@"Error: %@", error);
+  self.exercises = exercisesJSON[@"exercises"];
+  NSLog(@"Self exercises: %@", self.exercises);
 }
 
 - (IBAction)exerciseNameDidFocus:(id)sender {
@@ -83,21 +95,31 @@
   self.sets = [self.exercise.sets sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
 }
 
+- (NSArray *)filteredExercises {
+  NSMutableArray *filterResult = [NSMutableArray array];
+  for (NSDictionary *exercise in self.exercises) {
+    if ([[exercise[@"name"] lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0)
+      [filterResult addObject:exercise];
+  }
+  return filterResult;
+}
+
 #pragma mark - Table View Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   if (self.isEditingExerciseName)
-    return 2;
+    return [[self filteredExercises] count];
   else
     return [self.exercise.sets count] + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   if (self.isEditingExerciseName) {
+    NSArray *filteredExercises = [self filteredExercises];
     TitleDetailCell *cell = [[TitleDetailCell alloc] initWithCellID:@"CellID"];
-    cell.title = @"Bicep curl";
-    cell.details = @"Last time: yesterday";
+    cell.title = filteredExercises[indexPath.row][@"name"];
+    cell.details = @"Last time: unknown";
     cell.backgroundColor = [UIColor colorWithRed:200 green:200 blue:200 alpha:1.0];
     return cell;
   }

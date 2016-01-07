@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="height" constant="52" id="OzT-lB-dG7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                 <connections>
                                     <action selector="exerciseNameDidChange:" destination="wgH-8c-MtR" eventType="editingChanged" id="yvF-LM-LQN"/>
                                     <action selector="exerciseNameDidFinishChanging:" destination="wgH-8c-MtR" eventType="editingDidEndOnExit" id="nqg-4d-axx"/>
