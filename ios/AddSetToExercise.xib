@@ -63,6 +63,7 @@
                 <constraint firstItem="3oL-SR-IXH" firstAttribute="leading" secondItem="AWB-nd-lM2" secondAttribute="trailing" constant="8" id="yza-Pq-pIr"/>
             </constraints>
             <connections>
+                <outlet property="addSetButton" destination="2Ki-Tt-yUd" id="fcE-h1-KtO"/>
                 <outlet property="repsField" destination="57k-Hg-9Fg" id="vsb-yc-CyF"/>
                 <outlet property="weightField" destination="3oL-SR-IXH" id="U1R-t6-GaK"/>
             </connections>

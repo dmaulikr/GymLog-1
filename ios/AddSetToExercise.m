@@ -12,6 +12,9 @@
 @interface AddSetToExercise()
 @property (strong, nonatomic) IBOutlet UITextField *repsField;
 @property (strong, nonatomic) IBOutlet UITextField *weightField;
+@property (strong, nonatomic) IBOutlet UIButton *addSetButton;
+
+- (IBAction)addSet:(id)sender;
 @end
 
 @implementation AddSetToExercise
@@ -48,5 +51,11 @@
     [self.repsField becomeFirstResponder];
   else if (CGRectContainsPoint(self.weightField.frame, [touch locationInView:self]))
     [self.weightField becomeFirstResponder];
+  else if (CGRectContainsPoint(self.addSetButton.frame, [touch locationInView:self]))
+    [self addSet:self.addSetButton];
+}
+
+- (IBAction)addSet:(id)sender {
+  NSLog(@"Add set");
 }
 @end
