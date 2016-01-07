@@ -10,9 +10,11 @@
 #import "WorkoutMO.h"
 #import "ExerciseMO.h"
 #import "AddSetDelegate.h"
+#import "AddExerciseDelegate.h";
 
 @interface AddExerciseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AddSetDelegate>
 @property (strong, nonatomic) ExerciseMO *exercise;
+@property (weak, nonatomic) id<AddExerciseDelegate> delegate;
 
 + (AddExerciseViewController *)addExerciseToWorkout:(WorkoutMO *)workout;
 @end

@@ -70,4 +70,18 @@
   return fetchedObjects;
 }
 
+// http://stackoverflow.com/a/9556747/472768
+- (void)removeExercisesObject:(ExerciseMO *)value {
+  static NSString *const kItemsKey = @"exercises";
+  NSMutableOrderedSet *tmpOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[self mutableOrderedSetValueForKey:kItemsKey]];
+  NSUInteger idx = [tmpOrderedSet indexOfObject:value];
+  if (idx != NSNotFound) {
+    NSIndexSet* indexes = [NSIndexSet indexSetWithIndex:idx];
+    [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:kItemsKey];
+    [tmpOrderedSet removeObject:value];
+    [self setPrimitiveValue:tmpOrderedSet forKey:kItemsKey];
+    [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:kItemsKey];
+  }
+}
+
 @end

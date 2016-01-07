@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WorkoutMO.h"
 #import "WorkoutActionsDelegate.h"
+#import "AddExerciseDelegate.h"
 
-@interface WorkoutDetailsViewController : UIViewController <WorkoutActionsDelegate>
+@interface WorkoutDetailsViewController : UIViewController <WorkoutActionsDelegate, AddExerciseDelegate>
 + (WorkoutDetailsViewController *)detailsForWorkout:(WorkoutMO *)workout;
 @end

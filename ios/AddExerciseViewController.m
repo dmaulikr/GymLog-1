@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSArray *sets;
 @property (strong, nonatomic) NSArray *exercises;
 
+- (IBAction)cancelAddExercise:(id)sender;
 - (IBAction)exerciseNameDidFocus:(id)sender;
 - (IBAction)exerciseNameDidChange:(id)sender;
 - (IBAction)finishExercise:(id)sender;
@@ -52,20 +53,25 @@
   bottomBorder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.15f].CGColor;
   [self.exerciseNameField.layer addSublayer:bottomBorder];
   
+  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAddExercise:)];
+  self.navigationItem.leftBarButtonItem = cancelButton;
   UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
   self.navigationItem.rightBarButtonItem = finishButton;
   
   NSError *error = nil;
   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"exercises"
                                                        ofType:@"json"];
-  NSLog(@"File path: %@", filePath);
   NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *exercisesJSON = [NSJSONSerialization JSONObjectWithData:dataFromFile
                                                        options:kNilOptions
                                                          error:&error];
-  NSLog(@"Error: %@", error);
   self.exercises = exercisesJSON[@"exercises"];
-  NSLog(@"Self exercises: %@", self.exercises);
+}
+
+- (IBAction)cancelAddExercise:(id)sender {
+  if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelAddingExercise:)])
+    [self.delegate didCancelAddingExercise:self.exercise];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)exerciseNameDidFocus:(id)sender {
@@ -81,9 +87,11 @@
 }
 
 - (IBAction)finishExercise:(id)sender {
-//  NSDictionary *setParams = @{
-//                              @"repCount": [self.]
-//                              }
+  self.exercise.name = self.exerciseNameField.text;
+  NSLog(@"Finish exercise");
+  if (self.delegate && [self.delegate respondsToSelector:@selector(didFinishAddingExercise:)])
+    [self.delegate didFinishAddingExercise:self.exercise];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)finishEditingExerciseName {
