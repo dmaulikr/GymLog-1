@@ -136,9 +136,10 @@
                                     <constraint firstAttribute="height" constant="52" id="OzT-lB-dG7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
-                                    <action selector="exerciseNameDidChange:" destination="wgH-8c-MtR" eventType="valueChanged" id="Dbs-jG-mtM"/>
+                                    <action selector="exerciseNameDidChange:" destination="wgH-8c-MtR" eventType="editingChanged" id="yvF-LM-LQN"/>
+                                    <action selector="exerciseNameDidFinishChanging:" destination="wgH-8c-MtR" eventType="editingDidEndOnExit" id="nqg-4d-axx"/>
                                     <action selector="exerciseNameDidFocus:" destination="wgH-8c-MtR" eventType="editingDidBegin" id="Ne1-xS-gcs"/>
                                 </connections>
                             </textField>

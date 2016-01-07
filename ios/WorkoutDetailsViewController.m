@@ -10,6 +10,7 @@
 #import "WorkoutDetails.h"
 #import "WorkoutActions.h"
 #import "AddExerciseViewController.h"
+#import "ExerciseMO.h"
 
 @interface WorkoutDetailsViewController()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -69,7 +70,10 @@
 
 #pragma mark - Workout Actions Delegate
 - (void)didSelectAddExercise {
-  [self.navigationController pushViewController:[AddExerciseViewController addExerciseToWorkout:self.workout] animated:YES];
+  ExerciseMO *exercise = [ExerciseMO newInstance:@{@"createdAt": [NSDate date], @"workout": self.workout}];
+  AddExerciseViewController *aevc = [AddExerciseViewController addExerciseToWorkout:self.workout];
+  aevc.exercise = exercise;
+  [self.navigationController pushViewController:aevc animated:YES];
 }
 
 @end
