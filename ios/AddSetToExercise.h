@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddSetDelegate.h"
 
 @interface AddSetToExercise : UITableViewCell
+@property (weak, nonatomic) id<AddSetDelegate> delegate;
+
 + (AddSetToExercise *)addSetCell;
 @end

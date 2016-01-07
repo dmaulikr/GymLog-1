@@ -11,6 +11,7 @@
 #import "TitleDetailCell.h"
 #import "AddSetToExercise.h"
 #import "NotesCell.h"
+#import "SetMO.h"
 
 @interface AddExerciseViewController()
 @property (strong, nonatomic) IBOutlet UITextField *exerciseNameField;
@@ -65,7 +66,9 @@
 }
 
 - (IBAction)finishExercise:(id)sender {
-  NSLog(@"Finish exercise");
+//  NSDictionary *setParams = @{
+//                              @"repCount": [self.]
+//                              }
 }
 
 - (void)finishEditingExerciseName {
@@ -97,6 +100,7 @@
     }
     else {
       self.addSetCell = [AddSetToExercise addSetCell];
+      self.addSetCell.delegate = self;
       return self.addSetCell;
     }
   }
@@ -117,6 +121,18 @@
 # pragma mark - Table View Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
+}
+
+# pragma mark - Add Set Delegate
+- (void)addReps:(NSInteger)repCount atWeight:(float)weight {
+  NSDictionary *setParams = @{
+                              @"repCount": @(repCount),
+                              @"weight": @(weight),
+                              @"createdAt": [NSDate date],
+                              @"exercise": self.exercise
+                              };
+  [SetMO create:setParams];
+  [self.tableView reloadData];
 }
 
 @end

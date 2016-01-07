@@ -56,6 +56,10 @@
 }
 
 - (IBAction)addSet:(id)sender {
-  NSLog(@"Add set");
+  if (self.delegate && [self.delegate respondsToSelector:@selector(addReps:atWeight:)]) {
+    NSInteger repsCount = [self.repsField.text integerValue];
+    float weight = [self.weightField.text floatValue];
+    [self.delegate addReps:repsCount atWeight:weight];
+  }
 }
 @end

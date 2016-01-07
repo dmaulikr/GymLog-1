@@ -207,6 +207,7 @@
 		3DAA66331C3DA54A0020B3A4 /* NotesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesCell.xib; sourceTree = "<group>"; };
 		3DAA66361C3DA83E0020B3A4 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		3DAA66371C3DA83E0020B3A4 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		3DAA66391C3DFC5A0020B3A4 /* AddSetDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddSetDelegate.h; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -394,6 +395,7 @@
 				3DAA66231C3A1E5C0020B3A4 /* WorkoutActions.xib */,
 				3DAA66281C3B6C620020B3A4 /* AddExerciseViewController.h */,
 				3DAA66291C3B6C620020B3A4 /* AddExerciseViewController.m */,
+				3DAA66391C3DFC5A0020B3A4 /* AddSetDelegate.h */,
 				3DAA662B1C3CBB6C0020B3A4 /* AddSetToExercise.h */,
 				3DAA662C1C3CBB6C0020B3A4 /* AddSetToExercise.m */,
 				3DAA662E1C3CBBEB0020B3A4 /* AddSetToExercise.xib */,
