@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet WorkoutActions *workoutActions;
 @property (strong, nonatomic) WorkoutMO *workout;
+
+- (IBAction)editWorkout:(id)sender;
 @end
 
 @implementation WorkoutDetailsViewController
@@ -31,6 +33,13 @@
   self.title = [startFormatter stringFromDate:workoutStart];
   
   self.workoutActions.delegate = self;
+  
+  UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
+  self.navigationItem.rightBarButtonItem = editButton;
+}
+
+- (IBAction)editWorkout:(id)sender {
+  NSLog(@"Edit workout");
 }
 
 # pragma mark - Table View Data Source

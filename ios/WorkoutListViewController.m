@@ -12,14 +12,25 @@
 #import "WorkoutDetailsViewController.h"
 #import "TitleDetailCell.h"
 
+@interface WorkoutListViewController()
+- (IBAction)createNewWorkout:(id)sender;
+@end
+
 @implementation WorkoutListViewController
 - (void)viewDidLoad {
   self.title = @"Workouts";
   [super viewDidLoad];
+  
+  UIBarButtonItem *addWorkoutButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewWorkout:)];
+  self.navigationItem.rightBarButtonItem = addWorkoutButton;
 }
 - (void)viewWillAppear:(BOOL)animated {
   [self.tableView reloadData];
   [super viewWillAppear:animated];
+}
+
+- (IBAction)createNewWorkout:(id)sender {
+  NSLog(@"Create new workout");
 }
 
 # pragma mark - Table View Data Source

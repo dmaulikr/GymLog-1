@@ -20,6 +20,7 @@
 
 - (IBAction)exerciseNameDidFocus:(id)sender;
 - (IBAction)exerciseNameDidChange:(id)sender;
+- (IBAction)finishExercise:(id)sender;
 @end
 
 @implementation AddExerciseViewController
@@ -42,6 +43,9 @@
   bottomBorder.frame = CGRectMake(0, self.exerciseNameField.frame.size.height - 0.5, self.exerciseNameField.frame.size.width, 0.5f);
   bottomBorder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.15f].CGColor;
   [self.exerciseNameField.layer addSublayer:bottomBorder];
+  
+  UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
+  self.navigationItem.rightBarButtonItem = finishButton;
 }
 
 - (IBAction)exerciseNameDidFocus:(id)sender {
@@ -50,6 +54,10 @@
 
 - (IBAction)exerciseNameDidChange:(id)sender {
   [self.tableView reloadData];
+}
+
+- (IBAction)finishExercise:(id)sender {
+  NSLog(@"Finish exercise");
 }
 
 #pragma mark - Table View Data Source
