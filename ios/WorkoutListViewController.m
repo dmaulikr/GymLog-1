@@ -30,7 +30,7 @@
 }
 
 - (IBAction)createNewWorkout:(id)sender {
-  WorkoutMO *newWorkout = [WorkoutMO create:@{@"createdAt": [NSDate date]}];
+  WorkoutMO *newWorkout = [WorkoutMO create:@{@"createdAt": [NSDate date], @"workoutStart": [NSDate date]}];
   [self.tableView reloadData];
   [self.navigationController pushViewController:[WorkoutDetailsViewController detailsForWorkout:newWorkout] animated:YES];
 }

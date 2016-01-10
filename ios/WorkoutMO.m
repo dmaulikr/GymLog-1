@@ -64,8 +64,9 @@
 
 + (NSArray *)allWorkouts:(NSError * _Nullable *)error {
   NSFetchRequest *fetchRequest = [self entityFetchRequest];
-  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"workoutStart" ascending:NO];
-  [fetchRequest setSortDescriptors:@[sortDescriptor]];
+  NSSortDescriptor *startSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"workoutStart" ascending:NO];
+  NSSortDescriptor *createdSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+  [fetchRequest setSortDescriptors:@[startSortDescriptor, createdSortDescriptor]];
   NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:error];
   return fetchedObjects;
 }
