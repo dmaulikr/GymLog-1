@@ -106,6 +106,11 @@
   [self.navigationController pushViewController:aevc animated:YES];
 }
 
+- (void)didSelectFinishExercise {
+  [self.workout update:@{@"workoutEnd": [NSDate date]}];
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Add Exercise Delegate
 - (void)didCancelAddingExercise:(ExerciseMO *)exercise {
   [self.workout removeExercisesObject:exercise];

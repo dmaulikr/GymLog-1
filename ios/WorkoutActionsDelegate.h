@@ -13,6 +13,7 @@
 
 @optional
 - (void)didSelectAddExercise;
+- (void)didSelectFinishExercise;
 @end
 
 #endif /* WorkoutActionsDelegate_h */

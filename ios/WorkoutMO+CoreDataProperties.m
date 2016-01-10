@@ -21,7 +21,7 @@
 @dynamic exercises;
 
 - (NSTimeInterval)workoutStart {
-  NSTimeInterval currentWorkoutStart = [[self primitiveValueForKey:@"workoutStart"] doubleValue];
+  NSTimeInterval currentWorkoutStart = [(NSDate *)[self primitiveValueForKey:@"workoutStart"] timeIntervalSinceReferenceDate];
   if (currentWorkoutStart > 0)
     return currentWorkoutStart;
   else
@@ -29,7 +29,7 @@
 }
 
 - (NSTimeInterval)workoutEnd {
-  NSTimeInterval currentWorkoutEnd = [[self primitiveValueForKey:@"workoutEnd"] doubleValue];
+  NSTimeInterval currentWorkoutEnd = [(NSDate *)[self primitiveValueForKey:@"workoutEnd"] timeIntervalSinceReferenceDate];
   if (currentWorkoutEnd > 0)
     return currentWorkoutEnd;
   else

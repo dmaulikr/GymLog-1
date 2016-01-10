@@ -60,6 +60,9 @@
                                         <state key="normal" title="Finish workout">
                                             <color key="titleColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="finishExercise:" destination="UMN-et-Kf7" eventType="touchUpInside" id="rtq-ZS-cBf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ez5-Fb-IB8">
                                         <rect key="frame" x="20" y="15" width="560" height="44"/>

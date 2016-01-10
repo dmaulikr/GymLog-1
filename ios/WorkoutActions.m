@@ -11,6 +11,7 @@
 
 @interface WorkoutActions()
 - (IBAction)addExercise:(id)sender;
+- (IBAction)finishExercise:(id)sender;
 @end
 
 @implementation WorkoutActions
@@ -27,5 +28,10 @@
 - (IBAction)addExercise:(id)sender {
   if ([self.delegate respondsToSelector:@selector(didSelectAddExercise)])
     [self.delegate didSelectAddExercise];
+}
+
+- (IBAction)finishExercise:(id)sender {
+  if ([self.delegate respondsToSelector:@selector(didSelectFinishExercise)])
+    [self.delegate didSelectFinishExercise];
 }
 @end
