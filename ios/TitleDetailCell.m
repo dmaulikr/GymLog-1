@@ -19,6 +19,9 @@
   self.bounds = CGRectInset(self.frame, 0, -4);
   self.textLabel.font = [UIFont boldSystemFontOfSize:17.0];
   self.detailTextLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.66];
+  
+  self.detailTextLabel.numberOfLines = 0;
+  self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
   return self;
 }
 

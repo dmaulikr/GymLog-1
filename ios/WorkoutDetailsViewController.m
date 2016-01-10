@@ -12,6 +12,7 @@
 #import "AddExerciseViewController.h"
 #import "ExerciseMO.h"
 #import "TitleDetailCell.h"
+#import "SetMO.h"
 
 @interface WorkoutDetailsViewController()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -78,7 +79,10 @@
   
   ExerciseMO *exercise = self.exercises[indexPath.row];
   cell.title = exercise.name;
-  cell.details = [NSString stringWithFormat:@"%lu sets", [exercise.sets count]];
+  NSMutableArray *setsStrings = [NSMutableArray arrayWithCapacity:[exercise.sets count]];
+  for (SetMO *set in exercise.sortedSets)
+    [setsStrings addObject:[NSString stringWithFormat:@"%d@%d", set.repCount, set.weight]];
+  cell.details = [setsStrings componentsJoinedByString:@" | "];
   
   return cell;
 }
@@ -87,6 +91,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
   return 72;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  ExerciseMO *exercise = self.workout.exercises[indexPath.row];
+  return 44 + ([exercise.sets count] / 7) * 26;
 }
 
 #pragma mark - Workout Actions Delegate
@@ -105,7 +113,6 @@
 }
 
 - (void)didFinishAddingExercise:(ExerciseMO *)exercise {
-  NSLog(@"Did finish adding exercise: %@", exercise);
   [self reload];
 }
 

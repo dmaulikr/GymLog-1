@@ -66,4 +66,8 @@
   return fetchedObjects[0];
 }
 
+- (NSArray<SetMO *> *)sortedSets {
+  return [(NSSet<SetMO *> *)[self primitiveValueForKey:@"sets"] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
+}
+
 @end

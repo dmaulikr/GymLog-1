@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)find:(uint64_t)uid error:(NSError * _Nullable *)error;
 
 - (NSDictionary *)asJSON;
+- (NSArray<SetMO *> *)sortedSets;
 
 @end
 
