@@ -34,7 +34,7 @@
   return detailsVC;
 }
 - (void)viewDidLoad {
-  NSDate *workoutStart = [NSDate dateWithTimeIntervalSinceReferenceDate:self.workout.workoutStart];
+  NSDate *workoutStart = [NSDate dateWithTimeIntervalSince1970:self.workout.workoutStart];
   NSDateFormatter *startFormatter = [[NSDateFormatter alloc] init];
   [startFormatter setDateFormat:@"MM/yyyy"];
   self.title = [startFormatter stringFromDate:workoutStart];

@@ -20,4 +20,20 @@
 @dynamic location;
 @dynamic exercises;
 
+- (NSTimeInterval)workoutStart {
+  NSTimeInterval currentWorkoutStart = [[self primitiveValueForKey:@"workoutStart"] doubleValue];
+  if (currentWorkoutStart > 0)
+    return currentWorkoutStart;
+  else
+    return self.createdAt;
+}
+
+- (NSTimeInterval)workoutEnd {
+  NSTimeInterval currentWorkoutEnd = [[self primitiveValueForKey:@"workoutEnd"] doubleValue];
+  if (currentWorkoutEnd > 0)
+    return currentWorkoutEnd;
+  else
+    return self.createdAt;
+}
+
 @end

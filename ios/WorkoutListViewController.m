@@ -30,7 +30,9 @@
 }
 
 - (IBAction)createNewWorkout:(id)sender {
-  NSLog(@"Create new workout");
+  WorkoutMO *newWorkout = [WorkoutMO create:@{@"createdAt": [NSDate date]}];
+  [self.tableView reloadData];
+  [self.navigationController pushViewController:[WorkoutDetailsViewController detailsForWorkout:newWorkout] animated:YES];
 }
 
 # pragma mark - Table View Data Source
@@ -47,9 +49,9 @@
     cell = [[TitleDetailCell alloc] initWithCellID:cellID];
   
   WorkoutMO *workout = [WorkoutMO allWorkouts:nil][indexPath.row];
-  NSDate *workoutStart = [NSDate dateWithTimeIntervalSinceReferenceDate:workout.workoutStart];
+  NSDate *workoutStart = [NSDate dateWithTimeIntervalSince1970:workout.workoutStart];
   NSDateFormatter *startFormatter = [[NSDateFormatter alloc] init];
-  [startFormatter setDateFormat:@"MM/yyyy HH:mm"];
+  [startFormatter setDateFormat:@"MM/dd HH:mm"];
   cell.title = [NSString stringWithFormat:@"%@", [startFormatter stringFromDate:workoutStart]];
   
   int workoutDurationSeconds = (int)workout.workoutEnd - (int)workout.workoutStart;

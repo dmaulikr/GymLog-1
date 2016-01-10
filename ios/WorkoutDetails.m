@@ -19,7 +19,9 @@
   if (!details)
     return nil;
   
-  details.workoutDate.text = @"Yesterday";
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+  details.workoutDate.text = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:workout.workoutStart]];
   details.workoutTimeAndPlace.text = @"1:20 – 2:35 • Teagle";
   
   return details;
