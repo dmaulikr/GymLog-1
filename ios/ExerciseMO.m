@@ -24,7 +24,7 @@
   ExerciseMO *exercise = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:[DataController sharedController].managedObjectContext];
   exercise.uid = [NSDate timeIntervalSinceReferenceDate];
   exercise.workout = attributes[@"workout"];
-  [exercise update:attributes];
+  [exercise update:attributes save:NO];
   return exercise;
 }
 
@@ -34,7 +34,7 @@
   return exercise;
 }
 
-- (void)update:(NSDictionary *)attributes {
+- (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
     self.createdAt = [attrCreatedAt timeIntervalSince1970];
@@ -44,6 +44,9 @@
   NSString *attrNotes = attributes[@"notes"];
   if (attrNotes)
     self.notes = attrNotes;
+  
+  if (shouldSave)
+    [[DataController sharedController] persist];
 }
 
 - (NSDictionary *)asJSON {

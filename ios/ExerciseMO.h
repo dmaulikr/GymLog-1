@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)entityName;
 + (ExerciseMO *)newInstance:(NSDictionary *)attributes;
 + (ExerciseMO *)create:(NSDictionary *)attributes;
-- (void)update:(NSDictionary *)attributes;
+- (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave;
 
 + (id)find:(uint64_t)uid error:(NSError * _Nullable *)error;
 

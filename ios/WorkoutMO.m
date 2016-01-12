@@ -22,11 +22,11 @@
 + (WorkoutMO *)create:(NSDictionary *)attributes {
   WorkoutMO *workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:[DataController sharedController].managedObjectContext];
   workout.uid = [NSDate timeIntervalSinceReferenceDate];
-  [workout update:attributes];
+  [workout update:attributes save:NO];
   [[DataController sharedController] persist];
   return workout;
 }
-- (void)update:(NSDictionary *)attributes {
+- (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
     self.createdAt = [attrCreatedAt timeIntervalSince1970];
@@ -39,6 +39,9 @@
   NSDate *attrWorkoutStart = attributes[@"workoutStart"];
   if (attrWorkoutStart)
     self.workoutStart = [attrWorkoutStart timeIntervalSince1970];
+  
+  if (shouldSave)
+    [[DataController sharedController] persist];
 }
 
 + (id)find:(uint64_t)uid error:(NSError * _Nullable *)error {

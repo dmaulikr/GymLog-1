@@ -44,10 +44,13 @@
   UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
   self.navigationItem.rightBarButtonItem = editButton;
   
+  [self getExercisesArray];
+  
   [super viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+  [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
   [super viewDidAppear:animated];
 }
 
@@ -62,6 +65,14 @@
 
 - (void)getExercisesArray {
   self.exercises = [self.workout.exercises sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
+}
+
+- (void)showDetailsForExercise:(ExerciseMO *)exercise newInstance:(BOOL)isNewInstance {
+  AddExerciseViewController *aevc = [AddExerciseViewController addExerciseToWorkout:self.workout];
+  aevc.showCancel = isNewInstance;
+  aevc.exercise = exercise;
+  aevc.delegate = self;
+  [self.navigationController pushViewController:aevc animated:YES];
 }
 
 # pragma mark - Table View Data Source
@@ -97,17 +108,20 @@
   return 44 + ([exercise.sets count] / 7) * 26;
 }
 
+#pragma mark - Table View Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  ExerciseMO *exercise = self.exercises[indexPath.row];
+  [self showDetailsForExercise:exercise newInstance:NO];
+}
+
 #pragma mark - Workout Actions Delegate
 - (void)didSelectAddExercise {
   ExerciseMO *exercise = [ExerciseMO newInstance:@{@"createdAt": [NSDate date], @"workout": self.workout}];
-  AddExerciseViewController *aevc = [AddExerciseViewController addExerciseToWorkout:self.workout];
-  aevc.exercise = exercise;
-  aevc.delegate = self;
-  [self.navigationController pushViewController:aevc animated:YES];
+  [self showDetailsForExercise:exercise newInstance:YES];
 }
 
 - (void)didSelectFinishExercise {
-  [self.workout update:@{@"workoutEnd": [NSDate date]}];
+  [self.workout update:@{@"workoutEnd": [NSDate date]} save:YES];
   [self.navigationController popViewControllerAnimated:YES];
 }
 

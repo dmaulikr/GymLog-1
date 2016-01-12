@@ -47,16 +47,21 @@
   self.title = @"Add Exercise";
   self.isEditingExerciseName = NO;
   
+  self.exerciseNameField.text = self.exercise.name;
+  [self getSetsArray];
+  
   // Draw border below name field
   CALayer *bottomBorder = [CALayer layer];
   bottomBorder.frame = CGRectMake(0, self.exerciseNameField.frame.size.height - 0.5, self.exerciseNameField.frame.size.width, 0.5f);
   bottomBorder.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.15f].CGColor;
   [self.exerciseNameField.layer addSublayer:bottomBorder];
   
-  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAddExercise:)];
-  self.navigationItem.leftBarButtonItem = cancelButton;
-  UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
-  self.navigationItem.rightBarButtonItem = finishButton;
+  if (self.showCancel) {
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAddExercise:)];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+    UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
+    self.navigationItem.rightBarButtonItem = finishButton;
+  }
   
   NSError *error = nil;
   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"exercises"
@@ -87,7 +92,7 @@
 }
 
 - (IBAction)finishExercise:(id)sender {
-  self.exercise.name = self.exerciseNameField.text;
+  [self.exercise update:@{@"name": self.exerciseNameField.text} save:YES];
   NSLog(@"Finish exercise");
   if (self.delegate && [self.delegate respondsToSelector:@selector(didFinishAddingExercise:)])
     [self.delegate didFinishAddingExercise:self.exercise];

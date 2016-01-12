@@ -82,7 +82,7 @@
 # pragma mark - Table View Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   [self.navigationController
-    pushViewController:[WorkoutDetailsViewController detailsForWorkout:[WorkoutMO allWorkouts:nil][0]]
+    pushViewController:[WorkoutDetailsViewController detailsForWorkout:[WorkoutMO allWorkouts:nil][indexPath.row]]
               animated:YES];
 }
 @end

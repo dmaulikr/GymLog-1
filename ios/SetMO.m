@@ -23,11 +23,11 @@
   SetMO *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[DataController sharedController].managedObjectContext];
   set.uid = [NSDate timeIntervalSinceReferenceDate];
   set.exercise = attributes[@"exercise"];
-  [set update:attributes];
-//  [[DataController sharedController] persist];
+  [set update:attributes save:NO];
+  [[DataController sharedController] persist];
   return set;
 }
-- (void)update:(NSDictionary *)attributes {
+- (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave {
   NSDate *attrCreatedAt = attributes[@"createdAt"];
   if (attrCreatedAt)
     self.createdAt = [attrCreatedAt timeIntervalSince1970];
@@ -37,6 +37,9 @@
   NSNumber *attrWeight = attributes[@"weight"];
   if (attrWeight)
     self.weight = [attrWeight shortValue];
+  
+  if (shouldSave)
+    [[DataController sharedController] persist];
 }
 
 - (NSDictionary *)asJSON {

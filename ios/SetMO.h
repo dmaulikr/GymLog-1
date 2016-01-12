@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)entityName;
 + (SetMO *)create:(NSDictionary *)attributes;
-- (void)update:(NSDictionary *)attributes;
+- (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave;
 
 - (NSDictionary *)asJSON;
 

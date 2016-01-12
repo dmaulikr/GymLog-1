@@ -15,6 +15,7 @@
 @interface AddExerciseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AddSetDelegate>
 @property (strong, nonatomic) ExerciseMO *exercise;
 @property (weak, nonatomic) id<AddExerciseDelegate> delegate;
+@property (assign, nonatomic) BOOL showCancel;
 
 + (AddExerciseViewController *)addExerciseToWorkout:(WorkoutMO *)workout;
 @end
