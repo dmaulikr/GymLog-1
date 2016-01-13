@@ -62,4 +62,8 @@
     [self.delegate addReps:repsCount atWeight:weight];
   }
 }
+
+- (void)focus {
+  [self.repsField becomeFirstResponder];
+}
 @end

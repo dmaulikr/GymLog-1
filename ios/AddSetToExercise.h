@@ -13,4 +13,5 @@
 @property (weak, nonatomic) id<AddSetDelegate> delegate;
 
 + (AddSetToExercise *)addSetCell;
+- (void)focus;
 @end

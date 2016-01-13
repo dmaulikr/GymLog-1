@@ -73,6 +73,11 @@
   self.exercises = exercisesJSON[@"exercises"];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [self getSetsArray];
+  [super viewDidAppear:animated];
+}
+
 - (IBAction)cancelAddExercise:(id)sender {
   if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelAddingExercise:)])
     [self.delegate didCancelAddingExercise:self.exercise];
@@ -182,6 +187,11 @@
   [SetMO create:setParams];
   [self getSetsArray];
   [self.tableView reloadData];
+  double delayInSeconds = 0.25;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    [self.addSetCell focus];
+  });
 }
 
 @end
