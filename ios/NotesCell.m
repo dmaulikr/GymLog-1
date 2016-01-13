@@ -15,11 +15,12 @@
 
 @implementation NotesCell
 
-+ (NotesCell *)notesCell {
++ (NotesCell *)notesCellWithNotes:(NSString *)notes {
   NotesCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"NotesCell" owner:nil options:nil] lastObject];
   if (!cell)
     return nil;
   cell.notesField.placeholder = @"Notes";
+  cell.notesField.text = notes;
   
   return cell;
 }
@@ -32,6 +33,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (NSString *)notes {
+  return self.notesField.text;
 }
 
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NotesCell : UITableViewCell
-+ (NotesCell *)notesCell;
+@property (readonly) NSString *notes;
+
++ (NotesCell *)notesCellWithNotes:(NSString *)notes;
 @end

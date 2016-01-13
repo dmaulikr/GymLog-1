@@ -22,6 +22,7 @@
 @property (strong, nonatomic) WorkoutMO *workout;
 @property (strong, nonatomic) NSArray *sets;
 @property (strong, nonatomic) NSArray *exercises;
+@property (strong, nonatomic) NotesCell *notesCell;
 
 - (IBAction)cancelAddExercise:(id)sender;
 - (IBAction)exerciseNameDidFocus:(id)sender;
@@ -59,9 +60,9 @@
   if (self.showCancel) {
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAddExercise:)];
     self.navigationItem.leftBarButtonItem = cancelButton;
-    UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
-    self.navigationItem.rightBarButtonItem = finishButton;
   }
+  UIBarButtonItem *finishButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishExercise:)];
+  self.navigationItem.rightBarButtonItem = finishButton;
   
   NSError *error = nil;
   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"exercises"
@@ -97,8 +98,7 @@
 }
 
 - (IBAction)finishExercise:(id)sender {
-  [self.exercise update:@{@"name": self.exerciseNameField.text} save:YES];
-  NSLog(@"Finish exercise");
+  [self.exercise update:@{@"name": self.exerciseNameField.text, @"notes": self.notesCell.notes} save:YES];
   if (self.delegate && [self.delegate respondsToSelector:@selector(didFinishAddingExercise:)])
     [self.delegate didFinishAddingExercise:self.exercise];
   [self.navigationController popViewControllerAnimated:YES];
@@ -156,7 +156,7 @@
   if (self.isEditingExerciseName)
     return nil;
   else
-    return [NotesCell notesCell];
+    return self.notesCell = [NotesCell notesCellWithNotes:self.exercise.notes];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
   if (self.isEditingExerciseName)
