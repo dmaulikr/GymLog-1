@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D13b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -27,7 +27,7 @@
                         <constraint firstAttribute="width" constant="16" id="cmx-M4-OTW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weight" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3oL-SR-IXH">
@@ -40,7 +40,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ki-Tt-yUd">
-                    <rect key="frame" x="548" y="285" width="44" height="30"/>
+                    <rect key="frame" x="548" y="4" width="44" height="592"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="O4Y-5p-1XH"/>
                         <constraint firstAttribute="width" constant="44" id="TqG-6R-uru"/>
@@ -48,10 +48,16 @@
                     <state key="normal" title="Add">
                         <color key="titleColor" red="0.98431372549999996" green="0.32156862749999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="O4Y-5p-1XH"/>
+                        </mask>
+                    </variation>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="2Ki-Tt-yUd" secondAttribute="bottom" constant="4" id="2ch-6e-Rdq"/>
                 <constraint firstItem="57k-Hg-9Fg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="Ndx-Xz-MB3"/>
                 <constraint firstItem="57k-Hg-9Fg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Od2-8w-THr"/>
                 <constraint firstItem="2Ki-Tt-yUd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PiX-7H-Cxv"/>
@@ -59,6 +65,7 @@
                 <constraint firstItem="3oL-SR-IXH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aYS-q8-Z0J"/>
                 <constraint firstAttribute="trailing" secondItem="2Ki-Tt-yUd" secondAttribute="trailing" constant="8" id="eED-5N-8fm"/>
                 <constraint firstItem="AWB-nd-lM2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nb8-hb-R40"/>
+                <constraint firstItem="2Ki-Tt-yUd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="oZN-nq-d7D"/>
                 <constraint firstItem="3oL-SR-IXH" firstAttribute="leading" secondItem="AWB-nd-lM2" secondAttribute="trailing" constant="8" id="vEa-FO-iXH"/>
                 <constraint firstItem="3oL-SR-IXH" firstAttribute="leading" secondItem="AWB-nd-lM2" secondAttribute="trailing" constant="8" id="yza-Pq-pIr"/>
             </constraints>
