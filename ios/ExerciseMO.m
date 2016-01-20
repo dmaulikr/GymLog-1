@@ -69,6 +69,14 @@
   return fetchedObjects[0];
 }
 
++ (id)findByName:(NSString *)name error:(NSError * _Nullable *)error {
+  NSFetchRequest *fetchRequest = [self entityFetchRequest];
+  [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", name]];
+  fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO]];
+  NSArray *fetchedObjects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:fetchRequest error:error];
+  return fetchedObjects;
+}
+
 - (NSArray<SetMO *> *)sortedSets {
   return [(NSSet<SetMO *> *)[self primitiveValueForKey:@"sets"] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
 }

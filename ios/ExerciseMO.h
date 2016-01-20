@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave;
 
 + (id)find:(uint64_t)uid error:(NSError * _Nullable *)error;
++ (id)findByName:(NSString *)name error:(NSError * _Nullable *)error;
 
 - (NSDictionary *)asJSON;
 - (NSArray<SetMO *> *)sortedSets;

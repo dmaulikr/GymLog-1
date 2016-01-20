@@ -115,9 +115,25 @@
 
 - (NSArray *)filteredExercises {
   NSMutableArray *filterResult = [NSMutableArray array];
-  for (NSString *name in [ExerciseMO exerciseNames])
-    if ([[name lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0)
-      [filterResult addObject:name];
+  for (NSString *name in [ExerciseMO exerciseNames]) {
+    if ([[name lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0) {
+      NSArray *previousInstances = [ExerciseMO findByName:name error:nil];  // Sorted latest first
+      ExerciseMO *lastInstance = previousInstances[0];
+      NSInteger daysAgo = -1;
+      if (lastInstance) {
+        // http://stackoverflow.com/a/4576575/472768
+        NSDate *today = [NSDate date];
+        NSDate *workoutDate = [NSDate dateWithTimeIntervalSince1970:lastInstance.createdAt];
+        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay
+                                                            fromDate:workoutDate
+                                                              toDate:today
+                                                             options:NSCalendarWrapComponents];
+        daysAgo = [components day] + 1;  // +1 possibly because it doesn't add a day until the hour in the day passes?
+      }
+      [filterResult addObject:@{@"name": name, @"daysAgo": @(daysAgo)}];
+    }
+  }
   return filterResult;
 }
 
@@ -135,8 +151,17 @@
   if (self.isEditingExerciseName) {
     NSArray *filteredExercises = [self filteredExercises];
     TitleDetailCell *cell = [[TitleDetailCell alloc] initWithCellID:@"CellID"];
-    cell.title = filteredExercises[indexPath.row];
-    cell.details = @"Last time: unknown";
+    NSDictionary *suggestedExercise = filteredExercises[indexPath.row];
+    cell.title = suggestedExercise[@"name"];
+    int daysAgo = [suggestedExercise[@"daysAgo"] intValue];
+    NSString *lastTime;
+    if (daysAgo < 0)
+      lastTime = @"Last time: Unknown";
+    else if (daysAgo == 0)
+      lastTime = @"Last time: Today";
+    else
+      lastTime = [NSString stringWithFormat:@"Last time: %d days ago", daysAgo];
+    cell.details = lastTime;
     cell.backgroundColor = [UIColor colorWithRed:200 green:200 blue:200 alpha:1.0];
     return cell;
   }
