@@ -46,7 +46,6 @@
   UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
   UIVisualEffectView *bluredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
   [bluredEffectView setFrame:self.workoutActions.bounds];
-//  [self.view insertSubview:bluredEffectView belowSubview:self.workoutActions];
   [self.workoutActions insertSubview:bluredEffectView atIndex:0];
   
   UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
