@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
   NSDate *workoutStart = [NSDate dateWithTimeIntervalSince1970:self.workout.workoutStart];
   NSDateFormatter *startFormatter = [[NSDateFormatter alloc] init];
-  [startFormatter setDateFormat:@"MM/yyyy"];
+  [startFormatter setDateFormat:@"MM/dd/yyyy"];
   self.title = [startFormatter stringFromDate:workoutStart];
   
   self.tableView.contentInset = UIEdgeInsetsMake(0, 0, self.workoutActions.bounds.size.height, 0);
