@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)asJSON;
 - (NSArray<SetMO *> *)sortedSets;
 
++ (NSArray *)exerciseNames;
+
 @end
 
 NS_ASSUME_NONNULL_END

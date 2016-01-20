@@ -73,4 +73,20 @@
   return [(NSSet<SetMO *> *)[self primitiveValueForKey:@"sets"] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
 }
 
++ (NSArray *)exerciseNames {
+  NSFetchRequest *request = [self.class entityFetchRequest];
+  [request setResultType:NSDictionaryResultType];
+  [request setReturnsDistinctResults:YES];
+  [request setPropertiesToFetch:@[@"name"]];
+  
+  NSError *error;
+  NSArray *objects = [[[DataController sharedController] managedObjectContext] executeFetchRequest:request error:&error];
+  // TODO: Handle error
+  
+  NSMutableArray *names = [NSMutableArray arrayWithCapacity:[objects count]];
+  for (NSDictionary *exercise in objects)
+    [names addObject:exercise[@"name"]];
+  return names;
+}
+
 @end

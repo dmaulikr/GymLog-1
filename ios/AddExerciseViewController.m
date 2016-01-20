@@ -115,10 +115,13 @@
 
 - (NSArray *)filteredExercises {
   NSMutableArray *filterResult = [NSMutableArray array];
-  for (NSDictionary *exercise in self.exercises) {
-    if ([[exercise[@"name"] lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0)
-      [filterResult addObject:exercise];
-  }
+//  for (NSDictionary *exercise in self.exercises) {
+//    if ([[exercise[@"name"] lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0)
+//      [filterResult addObject:exercise];
+//  }
+  for (NSString *name in [ExerciseMO exerciseNames])
+    if ([[name lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0)
+      [filterResult addObject:name];
   return filterResult;
 }
 
@@ -136,7 +139,7 @@
   if (self.isEditingExerciseName) {
     NSArray *filteredExercises = [self filteredExercises];
     TitleDetailCell *cell = [[TitleDetailCell alloc] initWithCellID:@"CellID"];
-    cell.title = filteredExercises[indexPath.row][@"name"];
+    cell.title = filteredExercises[indexPath.row];//[@"name"];
     cell.details = @"Last time: unknown";
     cell.backgroundColor = [UIColor colorWithRed:200 green:200 blue:200 alpha:1.0];
     return cell;
