@@ -22,7 +22,16 @@
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setDateFormat:@"MM/dd/yyyy"];
   details.workoutDate.text = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:workout.workoutStart]];
-  details.workoutTimeAndPlace.text = @"1:20 – 2:35 • Teagle";
+  
+  NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+  timeFormatter.timeStyle = NSDateFormatterShortStyle;
+  [timeFormatter setDateFormat:@"HH:mm"];
+  NSString *workoutLocationDisplayString = workout.location ? [NSString stringWithFormat:@"• %@", workout.location] : @"";
+  details.workoutTimeAndPlace.text = [NSString stringWithFormat:@"%@ – %@ %@",
+                                      [timeFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:workout.workoutStart]],
+                                      [timeFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:workout.workoutEnd]],
+                                      workoutLocationDisplayString
+                                      ];
   
   return details;
 }
