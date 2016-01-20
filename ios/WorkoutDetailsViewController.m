@@ -105,7 +105,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   ExerciseMO *exercise = self.workout.exercises[indexPath.row];
-  return 48 + ([exercise.sets count] / 7) * 26;
+  return 54 + ([exercise.sets count] / 7) * 28;
 }
 
 #pragma mark - Table View Delegate
