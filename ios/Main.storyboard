@@ -47,6 +47,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-GG-jbk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ojv-UM-LKM" id="j3G-yg-VzO"/>
+                                    <outlet property="delegate" destination="ojv-UM-LKM" id="U60-Rs-Awh"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMN-et-Kf7" customClass="WorkoutActions">
                                 <rect key="frame" x="0.0" y="491" width="600" height="109"/>
                                 <subviews>
@@ -78,7 +86,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Ez5-Fb-IB8" firstAttribute="centerX" secondItem="UMN-et-Kf7" secondAttribute="centerX" id="86s-6i-9cA"/>
                                     <constraint firstItem="EQd-AE-wTZ" firstAttribute="centerX" secondItem="UMN-et-Kf7" secondAttribute="centerX" id="BWT-Rk-BCr"/>
@@ -89,14 +97,6 @@
                                     <constraint firstItem="EQd-AE-wTZ" firstAttribute="top" secondItem="Ez5-Fb-IB8" secondAttribute="bottom" constant="12" id="t2D-cK-zcR"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-GG-jbk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="491"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ojv-UM-LKM" id="j3G-yg-VzO"/>
-                                    <outlet property="delegate" destination="ojv-UM-LKM" id="U60-Rs-Awh"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -107,10 +107,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="UMN-et-Kf7" secondAttribute="trailing" constant="-20" id="dqe-9b-xDg"/>
                             <constraint firstItem="UMN-et-Kf7" firstAttribute="top" secondItem="ycD-GG-jbk" secondAttribute="bottom" id="f6X-8f-jCf"/>
                             <constraint firstItem="UMN-et-Kf7" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="fET-gl-BMs"/>
+                            <constraint firstItem="xZJ-nh-YtQ" firstAttribute="top" secondItem="ycD-GG-jbk" secondAttribute="bottom" id="kYb-oI-rzc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ycD-GG-jbk" secondAttribute="trailing" constant="-20" id="lFd-j3-eyC"/>
                             <constraint firstItem="UMN-et-Kf7" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="p2v-1X-Vju"/>
                             <constraint firstItem="ycD-GG-jbk" firstAttribute="leading" secondItem="KHq-7q-b15" secondAttribute="leadingMargin" constant="-20" id="vvw-hb-V3U"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="f6X-8f-jCf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ycD-GG-jbk" id="j8F-oN-b0H"/>

@@ -39,7 +39,15 @@
   [startFormatter setDateFormat:@"MM/yyyy"];
   self.title = [startFormatter stringFromDate:workoutStart];
   
+  self.tableView.contentInset = UIEdgeInsetsMake(0, 0, self.workoutActions.bounds.size.height, 0);
+  
   self.workoutActions.delegate = self;
+  
+  UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+  UIVisualEffectView *bluredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+  [bluredEffectView setFrame:self.workoutActions.bounds];
+//  [self.view insertSubview:bluredEffectView belowSubview:self.workoutActions];
+  [self.workoutActions insertSubview:bluredEffectView atIndex:0];
   
   UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
   self.navigationItem.rightBarButtonItem = editButton;
