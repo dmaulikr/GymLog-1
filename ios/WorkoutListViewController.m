@@ -56,7 +56,7 @@
   
   int workoutDurationSeconds = (int)workout.workoutEnd - (int)workout.workoutStart;
   int workoutHours = workoutDurationSeconds / 3600;
-  int workoutMinutes = (workoutDurationSeconds - workoutHours * 60) / 60;
+  int workoutMinutes = (workoutDurationSeconds - workoutHours * 3600) / 60;
   NSString *workoutDuration = [NSString stringWithFormat:@"%dh %dm", workoutHours, workoutMinutes];
   NSString *detailText;
   if (workout.location && [workout.location length] > 0)
