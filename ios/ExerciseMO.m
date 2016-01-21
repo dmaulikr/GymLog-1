@@ -69,7 +69,7 @@
   return fetchedObjects[0];
 }
 
-+ (id)findByName:(NSString *)name error:(NSError * _Nullable *)error {
++ (NSArray *)findAllByName:(NSString *)name error:(NSError * _Nullable *)error {
   NSFetchRequest *fetchRequest = [self entityFetchRequest];
   [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@", name]];
   fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO]];

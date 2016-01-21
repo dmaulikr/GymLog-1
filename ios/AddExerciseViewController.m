@@ -13,6 +13,7 @@
 #import "NotesCell.h"
 #import "SetMO.h"
 #import "ExerciseSetCell.h"
+#import "ProgressChartView.h"
 
 @interface AddExerciseViewController()
 @property (strong, nonatomic) IBOutlet UITextField *exerciseNameField;
@@ -31,6 +32,7 @@
 
 - (void)finishEditingExerciseName;
 - (void)getSetsArray;
+- (NSArray *)progressDataForCurrentExercise;
 @end
 
 @implementation AddExerciseViewController
@@ -113,11 +115,24 @@
   self.sets = [self.exercise.sets sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES]]];
 }
 
+- (NSArray *)progressDataForCurrentExercise {
+  NSArray *previousInstances = [ExerciseMO findAllByName:self.exerciseNameField.text error:nil];
+  NSMutableArray *progressData = [NSMutableArray arrayWithCapacity:[previousInstances count]];
+  for (ExerciseMO *exercise in previousInstances) {
+    int maxWeight = 0;
+    for (SetMO *set in exercise.sets)
+      if (set.weight > maxWeight)
+        maxWeight = set.weight;
+    [progressData addObject:@{@"createdAt": @(exercise.createdAt), @"value": @(maxWeight)}];
+  }
+  return progressData;
+}
+
 - (NSArray *)filteredExercises {
   NSMutableArray *filterResult = [NSMutableArray array];
   for (NSString *name in [ExerciseMO exerciseNames]) {
     if ([[name lowercaseString] rangeOfString:[self.exerciseNameField.text lowercaseString]].location == 0) {
-      NSArray *previousInstances = [ExerciseMO findByName:name error:nil];  // Sorted latest first
+      NSArray *previousInstances = [ExerciseMO findAllByName:name error:nil];  // Sorted latest first
       ExerciseMO *lastInstance = previousInstances[0];
       NSInteger daysAgo = -1;
       if (lastInstance) {
@@ -175,6 +190,18 @@
       return self.addSetCell;
     }
   }
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+  if (self.isEditingExerciseName)
+    return nil;
+  else
+    return [ProgressChartView progressChartForData:[self progressDataForCurrentExercise]];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+  if (self.isEditingExerciseName)
+    return 0;
+  else
+    return 120;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
   if (self.isEditingExerciseName)
