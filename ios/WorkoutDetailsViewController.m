@@ -13,14 +13,20 @@
 #import "ExerciseMO.h"
 #import "TitleDetailCell.h"
 #import "SetMO.h"
+#import "EditWorkout.h"
 
 @interface WorkoutDetailsViewController()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet WorkoutActions *workoutActions;
 @property (strong, nonatomic) WorkoutMO *workout;
 @property (strong, nonatomic) NSArray *exercises;
+@property (assign, nonatomic) BOOL isEditing;
 
 - (IBAction)editWorkout:(id)sender;
+- (IBAction)finishEditingWorkout:(id)sender;
+
+- (UIBarButtonItem *)editButton;
+- (UIBarButtonItem *)doneEditingButton;
 
 - (void)getExercisesArray;
 - (void)reload;
@@ -48,8 +54,7 @@
   [bluredEffectView setFrame:self.workoutActions.bounds];
   [self.workoutActions insertSubview:bluredEffectView atIndex:0];
   
-  UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
-  self.navigationItem.rightBarButtonItem = editButton;
+  self.navigationItem.rightBarButtonItem = [self editButton];
   
   [self getExercisesArray];
   
@@ -66,8 +71,24 @@
   [self.tableView reloadData];
 }
 
+- (UIBarButtonItem *)editButton {
+  return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editWorkout:)];
+}
+
+- (UIBarButtonItem *)doneEditingButton {
+  return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishEditingWorkout:)];
+}
+
 - (IBAction)editWorkout:(id)sender {
-  NSLog(@"Edit workout");
+  self.isEditing = YES;
+  [self.tableView reloadData];
+  self.navigationItem.rightBarButtonItem = [self doneEditingButton];
+}
+
+- (IBAction)finishEditingWorkout:(id)sender {
+  self.isEditing = NO;
+  [self.tableView reloadData];
+  self.navigationItem.rightBarButtonItem = [self editButton];
 }
 
 - (void)getExercisesArray {
@@ -87,7 +108,7 @@
   return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [self.workout.exercises count];
+  return [self.exercises count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *cellID = @"cellID";
@@ -105,10 +126,16 @@
   return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-  return [WorkoutDetails detailsFromWorkout:self.workout];
+  if (!self.isEditing)
+    return [WorkoutDetails detailsFromWorkout:self.workout];
+  else
+    return [EditWorkout editWorkout:self.workout];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-  return 72;
+  if (!self.isEditing)
+    return 72;
+  else
+    return 327;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   ExerciseMO *exercise = self.workout.exercises[indexPath.row];
@@ -119,6 +146,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   ExerciseMO *exercise = self.exercises[indexPath.row];
   [self showDetailsForExercise:exercise newInstance:NO];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+  } else {
+    NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
+  }
 }
 
 #pragma mark - Workout Actions Delegate

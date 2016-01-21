@@ -33,6 +33,7 @@
   return summary;
 }
 
+// http://stackoverflow.com/a/14688701/472768
 + (NSDate *)firstDayOfWeekFrom:(NSDate *)givenDate {
   NSCalendar *calendar = [NSCalendar currentCalendar];
   
