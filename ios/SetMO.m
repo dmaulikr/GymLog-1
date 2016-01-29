@@ -23,8 +23,7 @@
   SetMO *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[DataController sharedController].managedObjectContext];
   set.uid = [NSDate timeIntervalSinceReferenceDate];
   set.exercise = attributes[@"exercise"];
-  [set update:attributes save:NO];
-  [[DataController sharedController] persist];
+  [set update:attributes save:YES];
   return set;
 }
 - (void)update:(NSDictionary *)attributes save:(BOOL)shouldSave {
@@ -48,6 +47,11 @@
            @"repCount": @(self.repCount),
            @"weight": @(self.weight)
          };
+}
+
+- (void)destroy {
+  [self.exercise removeSetsObject:self];
+  [[DataController sharedController] persist];
 }
 
 @end

@@ -194,6 +194,7 @@
 		3D9D89B41C2F5B580006783F /* SetMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetMO.m; sourceTree = "<group>"; };
 		3D9D89BB1C3039E30006783F /* WorkoutRCTWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutRCTWrapper.h; sourceTree = "<group>"; };
 		3D9D89BC1C3039E30006783F /* WorkoutRCTWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutRCTWrapper.m; sourceTree = "<group>"; };
+		3DA03B291C5B3B1F00617934 /* GymLog 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GymLog 2.xcdatamodel"; sourceTree = "<group>"; };
 		3DAA66011C39F0C00020B3A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3DAA66101C39F14D0020B3A4 /* WorkoutListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutListViewController.h; sourceTree = "<group>"; };
 		3DAA66111C39F14D0020B3A4 /* WorkoutListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutListViewController.m; sourceTree = "<group>"; };
@@ -996,9 +997,10 @@
 		3D9D89971C2F2A2C0006783F /* GymLog.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				3DA03B291C5B3B1F00617934 /* GymLog 2.xcdatamodel */,
 				3D9D89981C2F2A2C0006783F /* GymLog.xcdatamodel */,
 			);
-			currentVersion = 3D9D89981C2F2A2C0006783F /* GymLog.xcdatamodel */;
+			currentVersion = 3DA03B291C5B3B1F00617934 /* GymLog 2.xcdatamodel */;
 			path = GymLog.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

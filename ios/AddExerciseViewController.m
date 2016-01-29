@@ -227,6 +227,21 @@
   }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (self.isEditingExerciseName)
+    return NO;
+  return indexPath.row < [self.exercise.sets count];
+}
+
+- (void)tableView:(UITableView *)table commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [(SetMO *)self.sets[indexPath.row] destroy];
+    [table deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+  } else {
+    NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
+  }
+}
+
 # pragma mark - Add Set Delegate
 - (void)addReps:(NSInteger)repCount atWeight:(float)weight {
   NSDictionary *setParams = @{
