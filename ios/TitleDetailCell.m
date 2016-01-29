@@ -26,7 +26,8 @@
 }
 
 - (void)setTitle:(NSString *)newTitle {
-  NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:newTitle];
+  NSString *displayTitle = newTitle ? newTitle : @"Untitled";
+  NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:displayTitle];
   NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
   paragraphStyle.lineHeightMultiple = 1.3;
   [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, newTitle.length)];

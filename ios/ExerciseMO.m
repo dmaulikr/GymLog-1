@@ -93,7 +93,8 @@
   
   NSMutableArray *names = [NSMutableArray arrayWithCapacity:[objects count]];
   for (NSDictionary *exercise in objects)
-    [names addObject:exercise[@"name"]];
+    if (exercise[@"name"])
+      [names addObject:exercise[@"name"]];
   return names;
 }
 
