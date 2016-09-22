@@ -144,7 +144,7 @@
                                                             fromDate:workoutDate
                                                               toDate:today
                                                              options:NSCalendarWrapComponents];
-        daysAgo = [components day] + 1;  // +1 possibly because it doesn't add a day until the hour in the day passes?
+        daysAgo = [components day];
       }
       [filterResult addObject:@{@"name": name, @"daysAgo": @(daysAgo)}];
     }
