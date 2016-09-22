@@ -15,4 +15,5 @@
 
 + (DataController *)sharedController;
 - (void)persist;
+- (void)deleteObject:(NSManagedObject *)object;
 @end

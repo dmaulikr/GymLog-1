@@ -8,6 +8,7 @@
 
 #import "AddExerciseViewController.h"
 @import QuartzCore;
+#import "DataController.h"
 #import "TitleDetailCell.h"
 #import "AddSetToExercise.h"
 #import "NotesCell.h"
@@ -84,6 +85,7 @@
 - (IBAction)cancelAddExercise:(id)sender {
   if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelAddingExercise:)])
     [self.delegate didCancelAddingExercise:self.exercise];
+  [[DataController sharedController] deleteObject:self.exercise];
   [self.navigationController popViewControllerAnimated:YES];
 }
 

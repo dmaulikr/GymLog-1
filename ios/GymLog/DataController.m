@@ -61,4 +61,8 @@ static DataController *_sharedController = nil;
     NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
   }
 }
+
+- (void)deleteObject:(NSManagedObject *)object {
+  [[self managedObjectContext] deleteObject:object];
+}
 @end
