@@ -6,7 +6,7 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.17.0",
+    "react-native": "^0.33.0",
     "react-native-chart": "git+https://github.com/onefold/react-native-chart.git",
     "react-prop-types": "0.3.0"
   }
