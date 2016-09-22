@@ -10,6 +10,7 @@
 #import "WorkoutDetails.h"
 #import "WorkoutActions.h"
 #import "AddExerciseViewController.h"
+#import "DataController.h"
 #import "ExerciseMO.h"
 #import "TitleDetailCell.h"
 #import "SetMO.h"
@@ -155,6 +156,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [[DataController sharedController] deleteObject:self.exercises[indexPath.row]];
+    [self getExercisesArray];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
   } else {
     NSLog(@"Unhandled editing style! %ld", (long)editingStyle);

@@ -64,5 +64,6 @@ static DataController *_sharedController = nil;
 
 - (void)deleteObject:(NSManagedObject *)object {
   [[self managedObjectContext] deleteObject:object];
+  [self persist];
 }
 @end
