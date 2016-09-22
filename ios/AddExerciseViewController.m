@@ -219,7 +219,10 @@
 # pragma mark - Table View Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (self.isEditingExerciseName) {
-    self.exerciseNameField.text = [self filteredExercises][indexPath.row][@"name"];
+    NSString *selectedName = [self filteredExercises][indexPath.row][@"name"];
+    self.exerciseNameField.text = selectedName;
+    if (!self.exercise.name)
+      self.exercise.name = selectedName;
     [self finishEditingExerciseName];
   }
   else {
